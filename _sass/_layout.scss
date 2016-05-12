@@ -1,26 +1,27 @@
 /**
  * Site header
  */
-.site-header {
+/*.site-header {
     border-top: 5px solid $grey-color-dark;
     border-bottom: 1px solid $grey-color-light;
     min-height: 56px;
 
     // Positioning context for the mobile navigation icon
     position: relative;
-}
+}*/
 
 .site-title {
     font-size: 26px;
-    font-weight: 300;
-    line-height: 56px;
-    letter-spacing: -1px;
+    font-weight: bolder;
+  
+   
     margin-bottom: 0;
-    float: left;
+   
+    color: #ffffff;
 
     &,
     &:visited {
-        color: $grey-color-dark;
+        color: #ffffff;
     }
 }
 
@@ -98,8 +99,9 @@
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid $grey-color-light;
+   
     padding: $spacing-unit 0;
+    background-color: #666666;
 }
 
 .footer-heading {
@@ -173,6 +175,10 @@
 
 .page-heading {
     font-size: 20px;
+    color:#ffffff;
+    letter-spacing:2px;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
 }
 
 .post-list {
