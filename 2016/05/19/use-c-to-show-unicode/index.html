@@ -11,17 +11,17 @@
     
 
     
-    <meta name="description" content="最近的一个作业，目的是从一个Unicode编码的文本文件中读取中文字符的内码并显示在控制台中。">
+    <meta name="description" content="&amp;emsp;最近的一个作业，目的是从一个Unicode编码的文本文件中读取中文字符的内码并显示在控制台中。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C语言在控制台中显示unicode中文字符">
 <meta property="og:url" content="http://zeco.ml/2016/05/19/use-c-to-show-unicode/index.html">
 <meta property="og:site_name" content="Zeco's blog">
-<meta property="og:description" content="最近的一个作业，目的是从一个Unicode编码的文本文件中读取中文字符的内码并显示在控制台中。">
+<meta property="og:description" content="&amp;emsp;最近的一个作业，目的是从一个Unicode编码的文本文件中读取中文字符的内码并显示在控制台中。">
 <meta property="og:image" content="http://zeco.ml/../../../../img/saveasunicode.png">
-<meta property="og:updated_time" content="2016-05-19T07:34:39.413Z">
+<meta property="og:updated_time" content="2016-05-19T07:44:03.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C语言在控制台中显示unicode中文字符">
-<meta name="twitter:description" content="最近的一个作业，目的是从一个Unicode编码的文本文件中读取中文字符的内码并显示在控制台中。">
+<meta name="twitter:description" content="&amp;emsp;最近的一个作业，目的是从一个Unicode编码的文本文件中读取中文字符的内码并显示在控制台中。">
 <meta name="twitter:image" content="http://zeco.ml/../../../../img/saveasunicode.png">
 
     
@@ -50,7 +50,7 @@
 				<h1 class="site-name"><a href="/" title="Zeco&#39;s blog">Zeco&#39;s blog</a></h1>
 				<h2 class="blog-motto">witness of my progress</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -66,7 +66,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:zeco.ml">
 					</form>
 					
@@ -89,22 +89,22 @@
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2016-05-19T04:48:12.000Z" itemprop="datePublished"> Published 2016-05-19</time>
+    <time datetime="2016-05-19T04:48:12.000Z" itemprop="datePublished"> 发表于 2016-05-19</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#unicode编码的文本文件"><span class="toc-number">1.</span> <span class="toc-text">unicode编码的文本文件</span></a></li></ol>
 		
 		</div>
 		
-		<p>最近的一个作业，目的是从一个Unicode编码的文本文件中读取中文字符的内码并显示在控制台中。<br><a id="more"></a></p>
+		<p>&emsp;最近的一个作业，目的是从一个Unicode编码的文本文件中读取中文字符的内码并显示在控制台中。<br><a id="more"></a></p>
 <ul>
-<li><h2 id="unicode编码的文本文件"><a href="#unicode编码的文本文件" class="headerlink" title="unicode编码的文本文件"></a>unicode编码的文本文件</h2>很简单，windows自带的记事本就提供了在保存时设置编码的功能，设置一下就可以了<br><img src="../../../../img/saveasunicode.png" alt="保存为unicode编码"><br>列表中还有一个unicode-bigendian，这个的意思是大端模式下的unicode，因为unicode是两个字节的数据代表一个字符，所以在大端模式下和小端模式下的存储方式是不同的</li>
+<li><h2 id="unicode编码的文本文件"><a href="#unicode编码的文本文件" class="headerlink" title="unicode编码的文本文件"></a>unicode编码的文本文件</h2>&emsp;很简单，windows自带的记事本就提供了在保存时设置编码的功能，设置一下就可以了<br><img src="../../../../img/saveasunicode.png" alt="保存为unicode编码"><br>&emsp;列表中还有一个unicode-bigendian，这个的意思是大端模式下的unicode，因为unicode是两个字节的数据代表一个字符，所以在大端模式下和小端模式下的存储方式是不同的。<br>&emsp;小端模式即低位字节存储在低地址段，高位字节存储在高地址段。大端模式则正好相反。所以如果在大端机器上读取小端模式的unicode或者在小端机器上读取大端模式的unicode的话，需要将读出来的两个字节调换一下顺序。如果想深入了解一下大端模式和小端模式的话，可以参考这篇博文：<a href="http://blog.csdn.net/ce123/article/details/6971544" target="_blank" rel="external">详解大端模式和小端模式</a></li>
 </ul>
   
 	</div>
@@ -150,22 +150,22 @@
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#unicode编码的文本文件"><span class="toc-number">1.</span> <span class="toc-text">unicode编码的文本文件</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="Zeco-01" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -177,7 +177,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -197,7 +197,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -427,7 +427,7 @@ $(document).ready(function(){
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
