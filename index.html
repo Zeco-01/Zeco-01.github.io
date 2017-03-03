@@ -57,7 +57,7 @@
 				<h1 class="site-name"><a href="/" title="Zeco&#39;s blog">Zeco&#39;s blog</a></h1>
 				<h2 class="blog-motto">自动溜号机器人</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -73,7 +73,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:zeco.ml">
 					</form>
 					
@@ -98,7 +98,7 @@
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="9999-12-31T15:59:59.000Z" itemprop="datePublished"> 发表于 9999-12-31</time>
+    <time datetime="9999-12-31T15:59:59.000Z" itemprop="datePublished"> Published 9999-12-31</time>
     
   </p>
 </header>
@@ -157,7 +157,7 @@
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-03T02:59:58.000Z" itemprop="datePublished"> 发表于 2017-03-03</time>
+    <time datetime="2017-03-03T02:59:58.000Z" itemprop="datePublished"> Published 2017-03-03</time>
     
   </p>
 </header>
@@ -166,7 +166,7 @@
         <ul>
 <li><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Write a function that takes a string as input and reverse only the vowels of a string.<br>Example 1:<br>Given s = “hello”, return “holle”.<br>Example 2:<br>Given s = “leetcode”, return “leotcede”.<br>Note:<br>The vowels does not include the letter “y”.</p>
 </li>
-<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>和<a href="leetcode-344.html">Leetcode-344</a>类似，这道题也是关于反转字符串的问题，思路也类似，交换对称位置的字符就可以了。不同的是，从反转整个字符串变成了仅反转元音字母的顺序。因此，我们首先需要一个判断字母是不是元音的函数，这里要考虑一下大小写的问题。<br>其次，找对称位置的字符的时候也不能再单纯地使用下标来计算，这里我设置了两个计数器i和j，分别从字符串s的左侧和右侧进行扫描，当i找到一个元音字母的时候，j开始扫描，同样找到一个元音字母的时候，交换这两个字母的位置，以此类推。<br>代码如下：</p>
+<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>&emsp; 和<a href="../leetcode-344.html">Leetcode-344</a>类似，这道题也是关于反转字符串的问题，思路也类似，交换对称位置的字符就可以了。不同的是，从反转整个字符串变成了仅反转元音字母的顺序。因此，我们首先需要一个判断字母是不是元音的函数，这里要考虑一下大小写的问题。<br>&emsp; 其次，找对称位置的字符的时候也不能再单纯地使用下标来计算，这里我设置了两个计数器i和j，分别从字符串s的左侧和右侧进行扫描，当i找到一个元音字母的时候，j开始扫描，同样找到一个元音字母的时候，交换这两个字母的位置，以此类推。<br>代码如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">reverseVowels</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> j = s.length()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(j&lt;<span class="number">1</span>)<span class="keyword">return</span> s;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length()<span class="number">-1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (v(s[i]))&#123;</span><br><span class="line">                <span class="keyword">for</span> (;j&gt;<span class="number">-1</span>;j--)&#123;</span><br><span class="line">                    <span class="keyword">if</span> (i&gt;=j)&#123;</span><br><span class="line">                        <span class="keyword">return</span> s;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span>(v(s[j]))&#123;</span><br><span class="line">                        <span class="keyword">char</span> temp = s[i];</span><br><span class="line">                        s[i] = s[j];</span><br><span class="line">                        s[j] =temp;</span><br><span class="line">                        j--;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">v</span><span class="params">(<span class="keyword">char</span> c)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (c==<span class="string">'a'</span>||c==<span class="string">'e'</span>||c==<span class="string">'i'</span>||c==<span class="string">'o'</span>||c==<span class="string">'u'</span>||c==<span class="string">'A'</span>||c==<span class="string">'E'</span>||c==<span class="string">'I'</span>||c==<span class="string">'O'</span>||c==<span class="string">'U'</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
@@ -220,7 +220,7 @@
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-03T01:58:37.000Z" itemprop="datePublished"> 发表于 2017-03-03</time>
+    <time datetime="2017-03-03T01:58:37.000Z" itemprop="datePublished"> Published 2017-03-03</time>
     
   </p>
 </header>
@@ -283,7 +283,7 @@
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2016-09-09T05:22:21.000Z" itemprop="datePublished"> 发表于 2016-09-09</time>
+    <time datetime="2016-09-09T05:22:21.000Z" itemprop="datePublished"> Published 2016-09-09</time>
     
   </p>
 </header>
@@ -341,7 +341,7 @@
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2016-05-19T04:48:12.000Z" itemprop="datePublished"> 发表于 2016-05-19</time>
+    <time datetime="2016-05-19T04:48:12.000Z" itemprop="datePublished"> Published 2016-05-19</time>
     
   </p>
 </header>
@@ -391,10 +391,10 @@
 
 </div>
 
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
@@ -409,7 +409,7 @@
 
   
 <div class="github-card">
-<p class="asidetitle">Github 名片</p>
+<p class="asidetitle">Github Card</p>
 <div class="github-card" data-github="Zeco-01" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -425,20 +425,8 @@
 
 
 <div>
-	<p class="asidetitle">标签</p>
+	<p class="asidetitle">Tags</p>
 		<div id="mytagcloud">
-		
-			
-				<a href="/tags/Leetcode/" title="Leetcode">Leetcode</a>
-			
-		
-			
-				<a href="/tags/C-C/" title="C/C++">C/C++</a>
-			
-		
-			
-				<a href="/tags/算法/" title="算法">算法</a>
-			
 		
 			
 				<a href="/tags/NLP/" title="NLP">NLP</a>
@@ -453,7 +441,15 @@
 			
 		
 			
-				<a href="/tags/杂项/" title="杂项">杂项</a>
+				<a href="/tags/Leetcode/" title="Leetcode">Leetcode</a>
+			
+		
+			
+				<a href="/tags/C-C/" title="C/C++">C/C++</a>
+			
+		
+			
+				<a href="/tags/算法/" title="算法">算法</a>
 			
 		
 			
@@ -464,13 +460,17 @@
 				<a href="/tags/编码/" title="编码">编码</a>
 			
 		
+			
+				<a href="/tags/杂项/" title="杂项">杂项</a>
+			
+		
 		</div>
 </div>
 <script src="/js/my-tag-cloud.js"></script>
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -629,7 +629,7 @@ $(document).ready(function(){
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
