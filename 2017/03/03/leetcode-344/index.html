@@ -4,23 +4,32 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>NLPCC2016中文词汇相似度计算 | Zeco&#39;s blog</title>
+    <title>Leetcode-344 | Zeco&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zeco">
     
 
     
-    <meta name="description" content="代码开源在github-NLPCC2016-WordSim, 最终结果Spearman相关系数达到0.457，21支队伍中排名第二，Pearson相关系数达到0.455，21支队伍中排名第二。">
+    <meta name="description" content="##题目Write a function that takes a string as input and returns the string reversed.Example:Given s = “hello”, return “olleh”.
+
+##解析一道很简单的题目，反转字符串，直接遍历前半段字符串，然后交换当前字符和后半段对称位置的字符就可以了
+123456789101112clas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NLPCC2016中文词汇相似度计算">
-<meta property="og:url" content="http://zeco.ml/2016/09/09/NLPCC2016-Chinese-Word-Simlarity/index.html">
+<meta property="og:title" content="Leetcode-344">
+<meta property="og:url" content="http://zeco.ml/2017/03/03/leetcode-344/index.html">
 <meta property="og:site_name" content="Zeco's blog">
-<meta property="og:description" content="代码开源在github-NLPCC2016-WordSim, 最终结果Spearman相关系数达到0.457，21支队伍中排名第二，Pearson相关系数达到0.455，21支队伍中排名第二。">
-<meta property="og:updated_time" content="2016-09-12T12:17:09.134Z">
+<meta property="og:description" content="##题目Write a function that takes a string as input and returns the string reversed.Example:Given s = “hello”, return “olleh”.
+
+##解析一道很简单的题目，反转字符串，直接遍历前半段字符串，然后交换当前字符和后半段对称位置的字符就可以了
+123456789101112clas">
+<meta property="og:updated_time" content="2017-03-03T02:53:29.889Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NLPCC2016中文词汇相似度计算">
-<meta name="twitter:description" content="代码开源在github-NLPCC2016-WordSim, 最终结果Spearman相关系数达到0.457，21支队伍中排名第二，Pearson相关系数达到0.455，21支队伍中排名第二。">
+<meta name="twitter:title" content="Leetcode-344">
+<meta name="twitter:description" content="##题目Write a function that takes a string as input and returns the string reversed.Example:Given s = “hello”, return “olleh”.
+
+##解析一道很简单的题目，反转字符串，直接遍历前半段字符串，然后交换当前字符和后半段对称位置的字符就可以了
+123456789101112clas">
 
     
     <link rel="alternative" href="/atom.xml" title="Zeco&#39;s blog" type="application/atom+xml">
@@ -90,20 +99,25 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/09/09/NLPCC2016-Chinese-Word-Simlarity/" title="NLPCC2016中文词汇相似度计算" itemprop="url">NLPCC2016中文词汇相似度计算</a>
+      <a href="/2017/03/03/leetcode-344/" title="Leetcode-344" itemprop="url">Leetcode-344</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2016-09-09T05:22:21.000Z" itemprop="datePublished"> Published 2016-09-09</time>
+    <time datetime="2017-03-03T01:58:37.000Z" itemprop="datePublished"> Published 2017-03-03</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<p>代码开源在<a href="https://github.com/Zeco-01/NLPCC-2016-WordSim" target="_blank" rel="external">github-NLPCC2016-WordSim</a>, 最终结果Spearman相关系数达到0.457，21支队伍中排名第二，Pearson相关系数达到0.455，21支队伍中排名第二。</p>
+		<ul>
+<li><p>##题目<br>Write a function that takes a string as input and returns the string reversed.<br>Example:<br>Given s = “hello”, return “olleh”.</p>
+</li>
+<li><p>##解析<br>一道很简单的题目，反转字符串，直接遍历前半段字符串，然后交换当前字符和后半段对称位置的字符就可以了</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">reverseString</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//若s的长度是奇数，那么中间的字符无需交换，遍历至s/lenth()/2（地板除）刚好</span></span><br><span class="line">	    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length()/<span class="number">2</span>;i++)&#123;</span><br><span class="line">	        <span class="keyword">char</span> temp = s[i];</span><br><span class="line">	        s[i] = s[s.length()-i<span class="number">-1</span>];</span><br><span class="line">	        s[s.length()-i<span class="number">-1</span>] = temp;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -112,7 +126,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/NLP/">NLP</a><a href="/tags/NLPCC评测/">NLPCC评测</a><a href="/tags/python/">python</a>
+  <span></span> <a href="/tags/Leetcode/">Leetcode</a><a href="/tags/C-C/">C/C++</a><a href="/tags/算法/">算法</a>
   </div>
 
 </div>
@@ -121,7 +135,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://zeco.ml/2016/09/09/NLPCC2016-Chinese-Word-Simlarity/" data-title="NLPCC2016中文词汇相似度计算 | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
+	  <div data-url="http://zeco.ml/2017/03/03/leetcode-344/" data-title="Leetcode-344 | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -135,18 +149,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/03/03/leetcode-344/" title="Leetcode-344">
+ <a href="/9999/12/31/welcome/" title="欢迎来到我的博客">
   <strong>上一篇：</strong><br/>
   <span>
-  Leetcode-344</span>
+  欢迎来到我的博客</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/05/19/use-c-to-show-unicode/"  title="C语言在控制台中显示unicode中文字符">
+<a href="/2016/09/09/NLPCC2016-Chinese-Word-Simlarity/"  title="NLPCC2016中文词汇相似度计算">
  <strong>下一篇：</strong><br/> 
- <span>C语言在控制台中显示unicode中文字符
+ <span>NLPCC2016中文词汇相似度计算
 </span>
 </a>
 </div>
