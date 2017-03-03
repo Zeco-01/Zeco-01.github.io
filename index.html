@@ -164,9 +164,9 @@
     <div class="article-content">
         
         <ul>
-<li><p>##题目<br>Write a function that takes a string as input and returns the string reversed.<br>Example:<br>Given s = “hello”, return “olleh”.</p>
+<li><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Write a function that takes a string as input and returns the string reversed.<br>Example:<br>Given s = “hello”, return “olleh”.</p>
 </li>
-<li><p>##解析<br>一道很简单的题目，反转字符串，直接遍历前半段字符串，然后交换当前字符和后半段对称位置的字符就可以了</p>
+<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>一道很简单的题目，反转字符串，直接遍历前半段字符串，然后交换当前字符和后半段对称位置的字符就可以了</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">reverseString</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//若s的长度是奇数，那么中间的字符无需交换，遍历至s/lenth()/2（地板除）刚好</span></span><br><span class="line">	    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length()/<span class="number">2</span>;i++)&#123;</span><br><span class="line">	        <span class="keyword">char</span> temp = s[i];</span><br><span class="line">	        s[i] = s[s.length()-i<span class="number">-1</span>];</span><br><span class="line">	        s[s.length()-i<span class="number">-1</span>] = temp;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
