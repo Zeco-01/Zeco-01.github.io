@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>欢迎来到我的博客 | Zeco&#39;s blog</title>
+    <title>Leetcode-345 | Zeco&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zeco">
     
 
     
-    <meta name="description" content="欢迎来到Zeco的博客！">
+    <meta name="description" content="题目Write a function that takes a string as input and reverse only the vowels of a string.Example 1:Given s = “hello”, return “holle”.Example 2:Given s = “leetcode”, return “leotcede”.Note:The vowels d">
 <meta property="og:type" content="article">
-<meta property="og:title" content="欢迎来到我的博客">
-<meta property="og:url" content="http://zeco.ml/9999/12/31/welcome/index.html">
+<meta property="og:title" content="Leetcode-345">
+<meta property="og:url" content="http://zeco.ml/2017/03/03/Leetcode-345/index.html">
 <meta property="og:site_name" content="Zeco's blog">
-<meta property="og:description" content="欢迎来到Zeco的博客！">
-<meta property="og:updated_time" content="2016-09-12T12:16:41.848Z">
+<meta property="og:description" content="题目Write a function that takes a string as input and reverse only the vowels of a string.Example 1:Given s = “hello”, return “holle”.Example 2:Given s = “leetcode”, return “leotcede”.Note:The vowels d">
+<meta property="og:updated_time" content="2017-03-03T09:23:44.268Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欢迎来到我的博客">
-<meta name="twitter:description" content="欢迎来到Zeco的博客！">
+<meta name="twitter:title" content="Leetcode-345">
+<meta name="twitter:description" content="题目Write a function that takes a string as input and reverse only the vowels of a string.Example 1:Given s = “hello”, return “holle”.Example 2:Given s = “leetcode”, return “leotcede”.Note:The vowels d">
 
     
     <link rel="alternative" href="/atom.xml" title="Zeco&#39;s blog" type="application/atom+xml">
@@ -90,22 +90,32 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/9999/12/31/welcome/" title="欢迎来到我的博客" itemprop="url">欢迎来到我的博客</a>
+      <a href="/2017/03/03/Leetcode-345/" title="Leetcode-345" itemprop="url">Leetcode-345</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="9999-12-31T15:59:59.000Z" itemprop="datePublished"> 发表于 9999-12-31</time>
+    <time datetime="2017-03-03T02:59:58.000Z" itemprop="datePublished"> 发表于 2017-03-03</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<p>欢迎来到Zeco的博客！<br><a id="more"></a><br>本博客基于<a href="https://pages.github.com/" target="_blank" rel="external">Github Pages</a>,<a href="https://hexo.io/" target="_blank" rel="external">hexo</a>和<a href="https://github.com/wuchong/jacman" target="_blank" rel="external">jacman</a>搭建。代码开源在<a href="https://github.com/Zeco-01/Zeco-01.github.io" target="_blank" rel="external">Zeco’s Blog-Github</a>。</p>
-<p>更多关于我的信息，请查看<a href="http://zeco.ml/about/">关于我</a>。</p>
-<p>小提示：只有会<strong>科学上网</strong>的人才能看见评论栏</p>
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析"><span class="toc-number">2.</span> <span class="toc-text">解析</span></a></li></ol>
+		
+		</div>
+		
+		<ul>
+<li><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Write a function that takes a string as input and reverse only the vowels of a string.<br>Example 1:<br>Given s = “hello”, return “holle”.<br>Example 2:<br>Given s = “leetcode”, return “leotcede”.<br>Note:<br>The vowels does not include the letter “y”.</p>
+</li>
+<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>和<a href="leetcode-344.html">Leetcode-344</a>类似，这道题也是关于反转字符串的问题，思路也类似，交换对称位置的字符就可以了。不同的是，从反转整个字符串变成了仅反转元音字母的顺序。因此，我们首先需要一个判断字母是不是元音的函数，这里要考虑一下大小写的问题。<br>其次，找对称位置的字符的时候也不能再单纯地使用下标来计算，这里我设置了两个计数器i和j，分别从字符串s的左侧和右侧进行扫描，当i找到一个元音字母的时候，j开始扫描，同样找到一个元音字母的时候，交换这两个字母的位置，以此类推。<br>代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">reverseVowels</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> j = s.length()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(j&lt;<span class="number">1</span>)<span class="keyword">return</span> s;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length()<span class="number">-1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (v(s[i]))&#123;</span><br><span class="line">                <span class="keyword">for</span> (;j&gt;<span class="number">-1</span>;j--)&#123;</span><br><span class="line">                    <span class="keyword">if</span> (i&gt;=j)&#123;</span><br><span class="line">                        <span class="keyword">return</span> s;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span>(v(s[j]))&#123;</span><br><span class="line">                        <span class="keyword">char</span> temp = s[i];</span><br><span class="line">                        s[i] = s[j];</span><br><span class="line">                        s[j] =temp;</span><br><span class="line">                        j--;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">v</span><span class="params">(<span class="keyword">char</span> c)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (c==<span class="string">'a'</span>||c==<span class="string">'e'</span>||c==<span class="string">'i'</span>||c==<span class="string">'o'</span>||c==<span class="string">'u'</span>||c==<span class="string">'A'</span>||c==<span class="string">'E'</span>||c==<span class="string">'I'</span>||c==<span class="string">'O'</span>||c==<span class="string">'U'</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -114,7 +124,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/杂项/">杂项</a>
+  <span></span> <a href="/tags/Leetcode/">Leetcode</a><a href="/tags/C-C/">C/C++</a><a href="/tags/算法/">算法</a>
   </div>
 
 </div>
@@ -123,7 +133,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://zeco.ml/9999/12/31/welcome/" data-title="欢迎来到我的博客 | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
+	  <div data-url="http://zeco.ml/2017/03/03/Leetcode-345/" data-title="Leetcode-345 | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -136,11 +146,19 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/9999/12/31/welcome/" title="欢迎来到我的博客">
+  <strong>上一篇：</strong><br/>
+  <span>
+  欢迎来到我的博客</span>
+</a>
+</div>
+
 
 <div class="next">
-<a href="/2017/03/03/Leetcode-345/"  title="Leetcode-345">
+<a href="/2017/03/03/leetcode-344/"  title="Leetcode-344">
  <strong>下一篇：</strong><br/> 
- <span>Leetcode-345
+ <span>Leetcode-344
 </span>
 </a>
 </div>
@@ -157,6 +175,13 @@
 
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析"><span class="toc-number">2.</span> <span class="toc-text">解析</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -345,6 +370,8 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
