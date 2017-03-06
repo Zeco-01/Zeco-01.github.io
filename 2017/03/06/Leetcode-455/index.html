@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Leetcode-1 Two Sum | Zeco&#39;s blog</title>
+    <title>Leetcode-455 Assign Cookies | Zeco&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zeco">
     
 
     
-    <meta name="description" content="Leetcode-1的解题过程。">
+    <meta name="description" content="Leetcode-455的解题过程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode-1 Two Sum">
-<meta property="og:url" content="http://zeco.ml/2017/03/06/Leetcode-1/index.html">
+<meta property="og:title" content="Leetcode-455 Assign Cookies">
+<meta property="og:url" content="http://zeco.ml/2017/03/06/Leetcode-455/index.html">
 <meta property="og:site_name" content="Zeco's blog">
-<meta property="og:description" content="Leetcode-1的解题过程。">
-<meta property="og:updated_time" content="2017-03-06T03:12:26.128Z">
+<meta property="og:description" content="Leetcode-455的解题过程。">
+<meta property="og:updated_time" content="2017-03-06T08:57:12.287Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode-1 Two Sum">
-<meta name="twitter:description" content="Leetcode-1的解题过程。">
+<meta name="twitter:title" content="Leetcode-455 Assign Cookies">
+<meta name="twitter:description" content="Leetcode-455的解题过程。">
 
     
     <link rel="alternative" href="/atom.xml" title="Zeco&#39;s blog" type="application/atom+xml">
@@ -90,14 +90,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/06/Leetcode-1/" title="Leetcode-1 Two Sum" itemprop="url">Leetcode-1 Two Sum</a>
+      <a href="/2017/03/06/Leetcode-455/" title="Leetcode-455 Assign Cookies" itemprop="url">Leetcode-455 Assign Cookies</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-06T02:41:32.000Z" itemprop="datePublished"> Published 2017-03-06</time>
+    <time datetime="2017-03-06T07:09:40.000Z" itemprop="datePublished"> Published 2017-03-06</time>
     
   </p>
 </header>
@@ -110,14 +110,18 @@
 		
 		</div>
 		
-		<p>Leetcode-1的解题过程。<br><a id="more"></a></p>
+		<p>Leetcode-455的解题过程。<br><a id="more"></a></p>
 <ul>
 <li><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
-<p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.<br>You may assume that each input would have exactly one solution, and you may not use the same element twice.<br>Example:<br>Given nums = [2, 7, 11, 15], target = 9,<br>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].</p>
+<p>Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie. Each child i has a greed factor gi, which is the minimum size of a cookie that the child will be content with; and each cookie j has a size sj. If sj &gt;= gi, we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximize the number of your content children and output the maximum number.   <br><br>Note:<br>You may assume the greed factor is always positive.<br>You cannot assign more than one cookie to one child.   <br></p>
+<ul>
+<li>Example 1:<br>Input: [1,2,3], [1,1]   <br><br>Output: 1   <br><br>Explanation: You have 3 children and 2 cookies. The greed factors of 3 children are 1, 2, 3.<br>And even though you have 2 cookies, since their size is both 1, you could only make the child whose greed factor is 1 content.<br>You need to output 1.<br><br></li>
+<li>Example 2:<br>Input: [1,2], [1,2,3]   <br><br>Output: 2   <br><br>Explanation: You have 2 children and 3 cookies. The greed factors of 2 children are 1, 2.<br>You have 3 cookies and their sizes are big enough to gratify all of the children,<br>You need to output 2.</li>
+</ul>
 </blockquote>
 </li>
-<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>&emsp; 在给定的数组里面找到两个和为给定值的元素的下标，题目里已经说明给定的数组有唯一解，直接暴搜了（其实应该用hash table类的方法）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :type target: int</span><br><span class="line">        :rtype: List[int]</span><br><span class="line">        """</span></span><br><span class="line">        i=<span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> num1 <span class="keyword">in</span> nums:</span><br><span class="line">            j =i+<span class="number">1</span></span><br><span class="line">            <span class="keyword">for</span> num2 <span class="keyword">in</span> nums[j:]:</span><br><span class="line">                <span class="keyword">if</span> num1+num2 == target :</span><br><span class="line">                    <span class="keyword">return</span> [i,j]</span><br><span class="line">                j+=<span class="number">1</span></span><br><span class="line">            i+=<span class="number">1</span></span><br></pre></td></tr></table></figure></li>
+<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>&emsp; 给小朋友分饼干，每个小朋友有一个贪婪值表示能满足他的最小饼干大小。简单的贪心算法的应用。基本思路是：将小朋友们按照贪婪值升序排列，随后遍历，从所有饼干中挑一个最小并且能满足他的饼干。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">FindContentChildren</span>(<span class="params"><span class="keyword">int</span>[] g, <span class="keyword">int</span>[] s</span>) </span>&#123;</span><br><span class="line">        Array.Sort(g);</span><br><span class="line">        Array.Sort(s);<span class="comment">//饼干也按照大小升序排列</span></span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] sf = <span class="keyword">new</span> <span class="keyword">int</span>[s.Length];<span class="comment">//标记数组，1代表没有满足，0代表已经满足</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;sf.Length;i++)&#123;</span><br><span class="line">            sf[i]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;g.Length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;s.Length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (s[j]&gt;=g[i] &amp;&amp; sf[j]==<span class="number">1</span>)&#123;</span><br><span class="line">                    count++;</span><br><span class="line">                    sf[j]=<span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
   
 	</div>
@@ -127,7 +131,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Leetcode/">Leetcode</a><a href="/tags/算法/">算法</a><a href="/tags/python/">python</a>
+  <span></span> <a href="/tags/Leetcode/">Leetcode</a><a href="/tags/算法/">算法</a><a href="/tags/C/">C#</a>
   </div>
 
 </div>
@@ -136,7 +140,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://zeco.ml/2017/03/06/Leetcode-1/" data-title="Leetcode-1 Two Sum | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
+	  <div data-url="http://zeco.ml/2017/03/06/Leetcode-455/" data-title="Leetcode-455 Assign Cookies | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -150,18 +154,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/03/06/Leetcode-278/" title="Leetcode-278 First Bad Version">
+ <a href="/9999/12/31/welcome/" title="欢迎来到我的博客">
   <strong>上一篇：</strong><br/>
   <span>
-  Leetcode-278 First Bad Version</span>
+  欢迎来到我的博客</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/03/03/Leetcode-345/"  title="Leetcode-345 Reverse Vowels of a String">
+<a href="/2017/03/06/Leetcode-83/"  title="Leetcode-83 Remove Duplicates from Sorted List">
  <strong>下一篇：</strong><br/> 
- <span>Leetcode-345 Reverse Vowels of a String
+ <span>Leetcode-83 Remove Duplicates from Sorted List
 </span>
 </a>
 </div>

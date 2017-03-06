@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://zeco.ml/2017/03/06/Leetcode-278/index.html">
 <meta property="og:site_name" content="Zeco's blog">
 <meta property="og:description" content="Leetcode-278的解题过程。">
-<meta property="og:updated_time" content="2017-03-06T03:23:28.704Z">
+<meta property="og:updated_time" content="2017-03-06T06:38:47.352Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode-278 First Bad Version">
 <meta name="twitter:description" content="Leetcode-278的解题过程。">
@@ -117,7 +117,8 @@
 </blockquote>
 </li>
 <li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>&emsp; Easy级别的题目，给定一个从1到n的数组，以及一个判定bad version的API，要找到第一个bad version的版本号。bad version是向后影响的，即第一个bad version后面的所有版本全部都是bad version。根据这个特点直接运用二分查找就可以了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">/* The isBadVersion API is defined in the parent class VersionControl.</span><br><span class="line">      bool IsBadVersion(int version); */</span><br><span class="line"></span><br><span class="line">public class Solution : VersionControl &#123;</span><br><span class="line">    public int FirstBadVersion(int n) &#123;</span><br><span class="line">        //这里有个坑，testcase里面的版本号有的超过了int最大值，在循环的条件判断时会出问题，所以用long</span><br><span class="line">        long a = 1;</span><br><span class="line">        long b = n;</span><br><span class="line">       </span><br><span class="line">        while(b-a&gt;1)&#123;</span><br><span class="line">            long t = (b+a)/2;</span><br><span class="line">            if (IsBadVersion((int)t))&#123;</span><br><span class="line">                b = t;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                a = t;</span><br><span class="line">            &#125;</span><br><span class="line">           </span><br><span class="line">        &#125;</span><br><span class="line">        if (IsBadVersion((int)a))</span><br><span class="line">            return (int)a;</span><br><span class="line">        else </span><br><span class="line">            return (int)b;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* The isBadVersion API is defined in the parent class VersionControl.</span><br><span class="line">      bool IsBadVersion(int version); */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> : <span class="title">VersionControl</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">FirstBadVersion</span>(<span class="params"><span class="keyword">int</span> n</span>) </span>&#123;</span><br><span class="line">        <span class="comment">//这里有个坑，testcase里面的版本号有的超过了int最大值，在循环的条件判断时会出问题，所以用long</span></span><br><span class="line">        <span class="keyword">long</span> a = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">long</span> b = n;</span><br><span class="line">       </span><br><span class="line">        <span class="keyword">while</span>(b-a&gt;<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">long</span> t = (b+a)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (IsBadVersion((<span class="keyword">int</span>)t))&#123;</span><br><span class="line">                b = t;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                a = t;</span><br><span class="line">            &#125;</span><br><span class="line">           </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (IsBadVersion((<span class="keyword">int</span>)a))</span><br><span class="line">            <span class="keyword">return</span> (<span class="keyword">int</span>)a;</span><br><span class="line">        <span class="function"><span class="keyword">else</span> </span><br><span class="line">            <span class="title">return</span> (<span class="params"><span class="keyword">int</span></span>)b</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
   
 	</div>
@@ -150,10 +151,10 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/9999/12/31/welcome/" title="欢迎来到我的博客">
+ <a href="/2017/03/06/Leetcode-83/" title="Leetcode-83 Remove Duplicates from Sorted List">
   <strong>上一篇：</strong><br/>
   <span>
-  欢迎来到我的博客</span>
+  Leetcode-83 Remove Duplicates from Sorted List</span>
 </a>
 </div>
 
@@ -230,15 +231,15 @@
 			
 		
 			
-				<a href="/tags/C/" title="C#">C#</a>
-			
-		
-			
 				<a href="/tags/python/" title="python">python</a>
 			
 		
 			
 				<a href="/tags/C-C/" title="C/C++">C/C++</a>
+			
+		
+			
+				<a href="/tags/C/" title="C#">C#</a>
 			
 		
 			
