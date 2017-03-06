@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://zeco.ml/2017/03/06/Leetcode-278/index.html">
 <meta property="og:site_name" content="Zeco's blog">
 <meta property="og:description" content="Leetcode-278的解题过程。">
-<meta property="og:updated_time" content="2017-03-06T03:17:36.858Z">
+<meta property="og:updated_time" content="2017-03-06T03:23:28.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode-278 First Bad Version">
 <meta name="twitter:description" content="Leetcode-278的解题过程。">
@@ -58,7 +58,7 @@
 				<h1 class="site-name"><a href="/" title="Zeco&#39;s blog">Zeco&#39;s blog</a></h1>
 				<h2 class="blog-motto">自动溜号机器人</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -74,7 +74,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:zeco.ml">
 					</form>
 					
@@ -97,14 +97,14 @@
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-06T03:11:58.000Z" itemprop="datePublished"> 发表于 2017-03-06</time>
+    <time datetime="2017-03-06T03:11:58.000Z" itemprop="datePublished"> Published 2017-03-06</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">Contents</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析"><span class="toc-number">2.</span> <span class="toc-text">解析</span></a></li></ol>
 		
@@ -117,7 +117,7 @@
 </blockquote>
 </li>
 <li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>&emsp; Easy级别的题目，给定一个从1到n的数组，以及一个判定bad version的API，要找到第一个bad version的版本号。bad version是向后影响的，即第一个bad version后面的所有版本全部都是bad version。根据这个特点直接运用二分查找就可以了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">/* The isBadVersion API is defined in the parent class VersionControl.</span><br><span class="line">      bool IsBadVersion(int version); */</span><br><span class="line"></span><br><span class="line">public class Solution : VersionControl &#123;</span><br><span class="line">    public int FirstBadVersion(int n) &#123;</span><br><span class="line">        </span><br><span class="line">        long a = 1;</span><br><span class="line">        long b = n;</span><br><span class="line">       </span><br><span class="line">        while(b-a&gt;1)&#123;</span><br><span class="line">            long t = (b+a)/2;</span><br><span class="line">            if (IsBadVersion((int)t))&#123;</span><br><span class="line">                b = t;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                a = t;</span><br><span class="line">            &#125;</span><br><span class="line">           </span><br><span class="line">        &#125;</span><br><span class="line">        if (IsBadVersion((int)a))</span><br><span class="line">            return (int)a;</span><br><span class="line">        else </span><br><span class="line">            return (int)b;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">/* The isBadVersion API is defined in the parent class VersionControl.</span><br><span class="line">      bool IsBadVersion(int version); */</span><br><span class="line"></span><br><span class="line">public class Solution : VersionControl &#123;</span><br><span class="line">    public int FirstBadVersion(int n) &#123;</span><br><span class="line">        //这里有个坑，testcase里面的版本号有的超过了int最大值，在循环的条件判断时会出问题，所以用long</span><br><span class="line">        long a = 1;</span><br><span class="line">        long b = n;</span><br><span class="line">       </span><br><span class="line">        while(b-a&gt;1)&#123;</span><br><span class="line">            long t = (b+a)/2;</span><br><span class="line">            if (IsBadVersion((int)t))&#123;</span><br><span class="line">                b = t;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                a = t;</span><br><span class="line">            &#125;</span><br><span class="line">           </span><br><span class="line">        &#125;</span><br><span class="line">        if (IsBadVersion((int)a))</span><br><span class="line">            return (int)a;</span><br><span class="line">        else </span><br><span class="line">            return (int)b;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
   
 	</div>
@@ -177,17 +177,17 @@
 </section>
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">Contents</strong>
  
  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析"><span class="toc-number">2.</span> <span class="toc-text">解析</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
@@ -202,7 +202,7 @@
 
   
 <div class="github-card">
-<p class="asidetitle">Github 名片</p>
+<p class="asidetitle">Github Card</p>
 <div class="github-card" data-github="Zeco-01" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -218,7 +218,7 @@
 
 
 <div>
-	<p class="asidetitle">标签</p>
+	<p class="asidetitle">Tags</p>
 		<div id="mytagcloud">
 		
 			
@@ -238,15 +238,15 @@
 			
 		
 			
-				<a href="/tags/C/" title="C#">C#</a>
-			
-		
-			
 				<a href="/tags/NLP/" title="NLP">NLP</a>
 			
 		
 			
 				<a href="/tags/NLPCC评测/" title="NLPCC评测">NLPCC评测</a>
+			
+		
+			
+				<a href="/tags/C/" title="C#">C#</a>
 			
 		
 			
@@ -267,7 +267,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -523,7 +523,7 @@ $(document).ready(function(){
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
