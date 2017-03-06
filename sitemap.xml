@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zeco.ml/2017/03/03/Leetcode-345/</loc>
+    
+    <lastmod>2017-03-06T03:25:53.426Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zeco.ml/2017/03/06/Leetcode-278/</loc>
     
     <lastmod>2017-03-06T03:23:28.704Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://zeco.ml/2017/03/06/Leetcode-1/</loc>
     
     <lastmod>2017-03-06T03:12:26.128Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zeco.ml/2017/03/03/Leetcode-345/</loc>
-    
-    <lastmod>2017-03-06T03:10:15.584Z</lastmod>
     
   </url>
   
