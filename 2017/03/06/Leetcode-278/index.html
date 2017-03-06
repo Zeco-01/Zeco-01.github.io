@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>欢迎来到我的博客 | Zeco&#39;s blog</title>
+    <title>Leetcode-278 First Bad Version | Zeco&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zeco">
     
 
     
-    <meta name="description" content="欢迎来到Zeco的博客！">
+    <meta name="description" content="Leetcode-278的解题过程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="欢迎来到我的博客">
-<meta property="og:url" content="http://zeco.ml/9999/12/31/welcome/index.html">
+<meta property="og:title" content="Leetcode-278 First Bad Version">
+<meta property="og:url" content="http://zeco.ml/2017/03/06/Leetcode-278/index.html">
 <meta property="og:site_name" content="Zeco's blog">
-<meta property="og:description" content="欢迎来到Zeco的博客！">
-<meta property="og:updated_time" content="2016-09-12T12:16:41.848Z">
+<meta property="og:description" content="Leetcode-278的解题过程。">
+<meta property="og:updated_time" content="2017-03-06T03:17:36.858Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欢迎来到我的博客">
-<meta name="twitter:description" content="欢迎来到Zeco的博客！">
+<meta name="twitter:title" content="Leetcode-278 First Bad Version">
+<meta name="twitter:description" content="Leetcode-278的解题过程。">
 
     
     <link rel="alternative" href="/atom.xml" title="Zeco&#39;s blog" type="application/atom+xml">
@@ -90,22 +90,35 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/9999/12/31/welcome/" title="欢迎来到我的博客" itemprop="url">欢迎来到我的博客</a>
+      <a href="/2017/03/06/Leetcode-278/" title="Leetcode-278 First Bad Version" itemprop="url">Leetcode-278 First Bad Version</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="9999-12-31T15:59:59.000Z" itemprop="datePublished"> 发表于 9999-12-31</time>
+    <time datetime="2017-03-06T03:11:58.000Z" itemprop="datePublished"> 发表于 2017-03-06</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<p>欢迎来到Zeco的博客！<br><a id="more"></a><br>本博客基于<a href="https://pages.github.com/" target="_blank" rel="external">Github Pages</a>,<a href="https://hexo.io/" target="_blank" rel="external">hexo</a>和<a href="https://github.com/wuchong/jacman" target="_blank" rel="external">jacman</a>搭建。代码开源在<a href="https://github.com/Zeco-01/Zeco-01.github.io" target="_blank" rel="external">Zeco’s Blog-Github</a>。</p>
-<p>更多关于我的信息，请查看<a href="http://zeco.ml/about/">关于我</a>。</p>
-<p>小提示：只有会<strong>科学上网</strong>的人才能看见评论栏</p>
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析"><span class="toc-number">2.</span> <span class="toc-text">解析</span></a></li></ol>
+		
+		</div>
+		
+		<p>Leetcode-278的解题过程。<br><a id="more"></a></p>
+<ul>
+<li><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.    <br><br>Suppose you have n versions [1, 2, …, n] and you want to find out the first bad one, which causes all the following ones to be bad.    <br><br>You are given an API bool isBadVersion(version) which will return whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.    <br></p>
+</blockquote>
+</li>
+<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>&emsp; Easy级别的题目，给定一个从1到n的数组，以及一个判定bad version的API，要找到第一个bad version的版本号。bad version是向后影响的，即第一个bad version后面的所有版本全部都是bad version。根据这个特点直接运用二分查找就可以了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">/* The isBadVersion API is defined in the parent class VersionControl.</span><br><span class="line">      bool IsBadVersion(int version); */</span><br><span class="line"></span><br><span class="line">public class Solution : VersionControl &#123;</span><br><span class="line">    public int FirstBadVersion(int n) &#123;</span><br><span class="line">        </span><br><span class="line">        long a = 1;</span><br><span class="line">        long b = n;</span><br><span class="line">       </span><br><span class="line">        while(b-a&gt;1)&#123;</span><br><span class="line">            long t = (b+a)/2;</span><br><span class="line">            if (IsBadVersion((int)t))&#123;</span><br><span class="line">                b = t;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                a = t;</span><br><span class="line">            &#125;</span><br><span class="line">           </span><br><span class="line">        &#125;</span><br><span class="line">        if (IsBadVersion((int)a))</span><br><span class="line">            return (int)a;</span><br><span class="line">        else </span><br><span class="line">            return (int)b;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -114,7 +127,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/杂项/">杂项</a>
+  <span></span> <a href="/tags/Leetcode/">Leetcode</a><a href="/tags/算法/">算法</a><a href="/tags/C/">C#</a>
   </div>
 
 </div>
@@ -123,7 +136,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://zeco.ml/9999/12/31/welcome/" data-title="欢迎来到我的博客 | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
+	  <div data-url="http://zeco.ml/2017/03/06/Leetcode-278/" data-title="Leetcode-278 First Bad Version | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -136,11 +149,19 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/9999/12/31/welcome/" title="欢迎来到我的博客">
+  <strong>上一篇：</strong><br/>
+  <span>
+  欢迎来到我的博客</span>
+</a>
+</div>
+
 
 <div class="next">
-<a href="/2017/03/06/Leetcode-278/"  title="Leetcode-278 First Bad Version">
+<a href="/2017/03/06/Leetcode-1/"  title="Leetcode-1 Two Sum">
  <strong>下一篇：</strong><br/> 
- <span>Leetcode-278 First Bad Version
+ <span>Leetcode-1 Two Sum
 </span>
 </a>
 </div>
@@ -157,6 +178,13 @@
 
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析"><span class="toc-number">2.</span> <span class="toc-text">解析</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -349,6 +377,8 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
