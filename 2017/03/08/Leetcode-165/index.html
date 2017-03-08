@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Leetcode-83 Remove Duplicates from Sorted List | Zeco&#39;s blog</title>
+    <title>Leetcode-165 Compare Version Numbers | Zeco&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zeco">
     
 
     
-    <meta name="description" content="Leetcode-278的解题过程。">
+    <meta name="description" content="Leetcode-165的解题过程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode-83 Remove Duplicates from Sorted List">
-<meta property="og:url" content="http://zeco.ml/2017/03/06/Leetcode-83/index.html">
+<meta property="og:title" content="Leetcode-165 Compare Version Numbers">
+<meta property="og:url" content="http://zeco.ml/2017/03/08/Leetcode-165/index.html">
 <meta property="og:site_name" content="Zeco's blog">
-<meta property="og:description" content="Leetcode-278的解题过程。">
-<meta property="og:updated_time" content="2017-03-06T06:49:01.821Z">
+<meta property="og:description" content="Leetcode-165的解题过程。">
+<meta property="og:updated_time" content="2017-03-08T06:54:14.634Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode-83 Remove Duplicates from Sorted List">
-<meta name="twitter:description" content="Leetcode-278的解题过程。">
+<meta name="twitter:title" content="Leetcode-165 Compare Version Numbers">
+<meta name="twitter:description" content="Leetcode-165的解题过程。">
 
     
     <link rel="alternative" href="/atom.xml" title="Zeco&#39;s blog" type="application/atom+xml">
@@ -90,14 +90,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/06/Leetcode-83/" title="Leetcode-83 Remove Duplicates from Sorted List" itemprop="url">Leetcode-83 Remove Duplicates from Sorted List</a>
+      <a href="/2017/03/08/Leetcode-165/" title="Leetcode-165 Compare Version Numbers" itemprop="url">Leetcode-165 Compare Version Numbers</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-06T06:39:53.000Z" itemprop="datePublished"> Published 2017-03-06</time>
+    <time datetime="2017-03-08T06:29:37.000Z" itemprop="datePublished"> Published 2017-03-08</time>
     
   </p>
 </header>
@@ -110,14 +110,14 @@
 		
 		</div>
 		
-		<p>Leetcode-278的解题过程。<br><a id="more"></a></p>
+		<p>Leetcode-165的解题过程。<br><a id="more"></a></p>
 <ul>
 <li><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
-<p>Given a sorted linked list, delete all duplicates such that each element appear only once.   <br><br>For example,<br>Given <code>1-&gt;1-&gt;2</code>, return <code>1-&gt;2</code>.<br>Given <code>1-&gt;1-&gt;2-&gt;3-&gt;3</code>, return <code>1-&gt;2-&gt;3</code>.</p>
+<p>Compare two version numbers version1 and version2.<br>If version1 &gt; version2 return 1, if version1 &lt; version2 return -1, otherwise return 0.   <br><br>You may assume that the version strings are non-empty and contain only digits and the . character.<br>The . character does not represent a decimal point and is used to separate number sequences.<br>For instance, 2.5 is not “two and a half” or “half way to version three”, it is the fifth second-level revision of the second first-level revision.   <br><br>Here is an example of version numbers ordering:<br>0.1 &lt; 1.1 &lt; 1.2 &lt; 13.37</p>
 </blockquote>
 </li>
-<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>&emsp; 又是一道Easy级别的题，去除有序链表中重复的节点。基本思想就是遍历链表，如果当前节点的值和下一个节点的值相等，则删除当前节点。</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     public int val;</span><br><span class="line"> *     public ListNode next;</span><br><span class="line"> *     public ListNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">DeleteDuplicates</span>(<span class="params">ListNode head</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head==<span class="literal">null</span>)&#123;<span class="comment">//边缘情况，这个是经常会犯的错误</span></span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode p = head.next;</span><br><span class="line">        ListNode plast = head;</span><br><span class="line">        <span class="keyword">int</span> temp = head.val;</span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="literal">null</span>)&#123;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (p.val!=temp)&#123;</span><br><span class="line">                temp = p.val;</span><br><span class="line">                plast = plast.next;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                plast.next = p.next;</span><br><span class="line">            &#125;</span><br><span class="line">            p = p.next;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>&emsp; 比较版本号的大小。通常来说版本号的格式一般是用小数点隔开的若干数字，同时左侧的数字级别要高过右侧的数字。和普通的小数不同的是，版本号中可能包括多个小数点，并且小数点之间的数字表示的意义和正常的小数不同。例如，若版本A的版本号为1.7，则代表的意义为：A是一级版本“1”下的第“7”个二级版本，同理，如果版本B的版本号为1.12，说明B是一级版本“1”下的第“12”个二级版本，那么显然是有A&lt;B的。<br>&emsp; 因此，比较版本号时应当按照小数点分隔的各级版本号，从左至右依次进行比较。当两个版本号在同一级别上的数字不相同时，就可以分辨出版本号的大小。当然，两个版本号的“长度”，即他们所包含的级别数不一定相同，比较时应当注意。例如，版本号“1.1.1”应当大过版本号“1.1”。<br>&emsp; 另外要注意的一点是“.0”这种形式的数字。例如，版本号“1”和“1.0”，甚至是“1.0.0”都应该是相等的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">compareVersion</span><span class="params">(self, version1, version2)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        :type version1: str</span><br><span class="line">        :type version2: str</span><br><span class="line">        :rtype: int</span><br><span class="line">        """</span></span><br><span class="line">        <span class="keyword">if</span> version1 == version2:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        v1 = version1.split(<span class="string">'.'</span>)</span><br><span class="line">        v2 = version2.split(<span class="string">'.'</span>)</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> vv1,vv2 <span class="keyword">in</span> zip(v1,v2):</span><br><span class="line">            <span class="keyword">if</span> int(vv1)&gt;int(vv2):</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> int(vv1)&lt;int(vv2):</span><br><span class="line">                <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">            count+=<span class="number">1</span></span><br><span class="line">        <span class="comment"># v1的“长度”大于v2时，如果v1长出来的部分里包括非0数字，则说明v1&gt;v2</span></span><br><span class="line">        <span class="keyword">if</span> len(v1)&gt;len(v2): </span><br><span class="line">            <span class="keyword">for</span> vv1 <span class="keyword">in</span> v1[count:]:</span><br><span class="line">                <span class="keyword">if</span> int(vv1)!=<span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">elif</span> len(v1)&lt;len(v2):</span><br><span class="line">             <span class="keyword">for</span> vv2 <span class="keyword">in</span> v2[count:]:</span><br><span class="line">                <span class="keyword">if</span> int(vv2)!=<span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">             <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
 </ul>
   
 	</div>
@@ -127,7 +127,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Leetcode/">Leetcode</a><a href="/tags/算法/">算法</a><a href="/tags/C/">C#</a>
+  <span></span> <a href="/tags/Leetcode/">Leetcode</a><a href="/tags/算法/">算法</a><a href="/tags/python/">python</a>
   </div>
 
 </div>
@@ -136,7 +136,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://zeco.ml/2017/03/06/Leetcode-83/" data-title="Leetcode-83 Remove Duplicates from Sorted List | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
+	  <div data-url="http://zeco.ml/2017/03/08/Leetcode-165/" data-title="Leetcode-165 Compare Version Numbers | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -150,18 +150,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/03/06/Leetcode-455/" title="Leetcode-455 Assign Cookies">
+ <a href="/9999/12/31/welcome/" title="欢迎来到我的博客">
   <strong>上一篇：</strong><br/>
   <span>
-  Leetcode-455 Assign Cookies</span>
+  欢迎来到我的博客</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/03/06/Leetcode-278/"  title="Leetcode-278 First Bad Version">
+<a href="/2017/03/06/Leetcode-455/"  title="Leetcode-455 Assign Cookies">
  <strong>下一篇：</strong><br/> 
- <span>Leetcode-278 First Bad Version
+ <span>Leetcode-455 Assign Cookies
 </span>
 </a>
 </div>
