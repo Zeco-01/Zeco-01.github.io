@@ -5,12 +5,18 @@
     
   <url>
     <loc>http://zeco.ml/2017/03/10/Leetcode-496/</loc>
-    <lastmod>2017-03-10T05:44:45.057Z</lastmod>
+    <lastmod>2017-04-13T11:16:54.265Z</lastmod>
     <data>
         <display>
-        <title>Leetcode-496</title>
+        <title>Leetcode-496 Next Greater Element I</title>
         <pubTime>2017-03-10T05:44:45.000Z</pubTime>
         
+        <tag>Leetcode</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>C#</tag>
+         
          
            
         </display>
@@ -194,11 +200,11 @@
         <title>NLPCC2016中文词汇相似度计算</title>
         <pubTime>2016-09-09T05:22:21.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>NLP</tag>
          
         <tag>NLPCC评测</tag>
+         
+        <tag>python</tag>
          
          
            
