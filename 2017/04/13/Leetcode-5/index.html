@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Leetcode-278 First Bad Version | Zeco&#39;s blog</title>
+    <title>Leetcode-5 Longest Palindromic Substring | Zeco&#39;s blog</title>
     <meta name="baidu-site-verification" content="szo8xhfejr" />
     <meta name="google-site-verification" content="_uVtfUmBEcmevomT5dpTdMBSAshmsJHV3gWBNTLX91I" />
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
@@ -13,16 +13,19 @@
     
 
     
-    <meta name="description" content="Leetcode-278的解题过程。">
+    <meta name="description" content="Leetcode-5的解题过程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode-278 First Bad Version">
-<meta property="og:url" content="http://zeco.ml/2017/03/06/Leetcode-278/index.html">
+<meta property="og:title" content="Leetcode-5 Longest Palindromic Substring">
+<meta property="og:url" content="http://zeco.ml/2017/04/13/Leetcode-5/index.html">
 <meta property="og:site_name" content="Zeco's blog">
-<meta property="og:description" content="Leetcode-278的解题过程。">
-<meta property="og:updated_time" content="2017-03-06T06:38:47.352Z">
+<meta property="og:description" content="Leetcode-5的解题过程。">
+<meta property="og:image" content="http://zeco.ml/../../../../img/search-odd.png">
+<meta property="og:image" content="http://zeco.ml/../../../../img/search-even.png">
+<meta property="og:updated_time" content="2017-04-13T13:14:46.727Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode-278 First Bad Version">
-<meta name="twitter:description" content="Leetcode-278的解题过程。">
+<meta name="twitter:title" content="Leetcode-5 Longest Palindromic Substring">
+<meta name="twitter:description" content="Leetcode-5的解题过程。">
+<meta name="twitter:image" content="http://zeco.ml/../../../../img/search-odd.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Zeco&#39;s blog" type="application/atom+xml">
@@ -108,14 +111,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/06/Leetcode-278/" title="Leetcode-278 First Bad Version" itemprop="url">Leetcode-278 First Bad Version</a>
+      <a href="/2017/04/13/Leetcode-5/" title="Leetcode-5 Longest Palindromic Substring" itemprop="url">Leetcode-5 Longest Palindromic Substring</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-06T03:11:58.000Z" itemprop="datePublished"> Published 2017-03-06</time>
+    <time datetime="2017-04-13T11:27:06.000Z" itemprop="datePublished"> Published 2017-04-13</time>
     
   </p>
 </header>
@@ -129,16 +132,21 @@
 		
 		</div>
 		
-		<p>Leetcode-278的解题过程。<br><a id="more"></a></p>
+		<p>Leetcode-5的解题过程。<br><a id="more"></a></p>
 <ul>
 <li><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
-<p>You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.    <br><br>Suppose you have n versions [1, 2, …, n] and you want to find out the first bad one, which causes all the following ones to be bad.    <br><br>You are given an API bool isBadVersion(version) which will return whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.    <br></p>
+<p>Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.<br>Example:<br>Input: “babad”<br>Output: “bab”<br>Note: “aba” is also a valid answer.<br>Example:<br>Input: “cbbd”<br>Output: “bb”</p>
 </blockquote>
 </li>
-<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>&emsp; Easy级别的题目，给定一个从1到n的数组，以及一个判定bad version的API，要找到第一个bad version的版本号。bad version是向后影响的，即第一个bad version后面的所有版本全部都是bad version。根据这个特点直接运用二分查找就可以了。</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* The isBadVersion API is defined in the parent class VersionControl.</span><br><span class="line">      bool IsBadVersion(int version); */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> : <span class="title">VersionControl</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">FirstBadVersion</span>(<span class="params"><span class="keyword">int</span> n</span>) </span>&#123;</span><br><span class="line">        <span class="comment">//这里有个坑，testcase里面的版本号有的超过了int最大值，在循环的条件判断时会出问题，所以用long</span></span><br><span class="line">        <span class="keyword">long</span> a = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">long</span> b = n;</span><br><span class="line">       </span><br><span class="line">        <span class="keyword">while</span>(b-a&gt;<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">long</span> t = (b+a)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (IsBadVersion((<span class="keyword">int</span>)t))&#123;</span><br><span class="line">                b = t;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                a = t;</span><br><span class="line">            &#125;</span><br><span class="line">           </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (IsBadVersion((<span class="keyword">int</span>)a))</span><br><span class="line">            <span class="keyword">return</span> (<span class="keyword">int</span>)a;</span><br><span class="line">        <span class="function"><span class="keyword">else</span> </span><br><span class="line">            <span class="title">return</span> (<span class="params"><span class="keyword">int</span></span>)b</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>查找最长回文子串，一道比较经典的字符串处理题目。对于一个长度为n的字符串来说，所有可能的子串有2^n种，想全部遍历显然是不现实的，我们需要一种更加高效的办法来扫描字符串。我们的目标是要找到回文字符串，所以可以根据回文串的特点来进行查找。回文串可以分为两类：</p>
 </li>
 </ul>
+<ul>
+<li>长度为奇数，这样的回文串会有一个中心字符，其他的字符都关于这个字符对称</li>
+<li>长度为偶数，这两的回文串的中心字符有两个且必定相同，其他字符都关于这两个字符对称<br>那么我们可以逐个字符扫描原字符串s，并将当前的字符（或当前字符与其下一个字符）作为假想的回文串中心字符，并以此为起点，比对s中关于假想中心对称位置的字符，来找到候选的回文串，如图所示。<br><img src="../../../../img/search-odd.png" alt="奇数情况"><br><img src="../../../../img/search-even.png" alt="偶数情况"></li>
+</ul>
+<p>总的来说这道题也不是很难，要注意的是一些边界情况以及奇数和偶数的讨论。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindromic</span><span class="params">(self, s)</span>:</span></span><br><span class="line"></span><br><span class="line">        head = <span class="number">0</span></span><br><span class="line">        tail = len(s) - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> (head &lt; tail):</span><br><span class="line">            <span class="keyword">if</span> s[head] != s[tail]:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">            head += <span class="number">1</span></span><br><span class="line">            tail -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestPalindrome</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        :type s: str</span><br><span class="line">        :rtype: str</span><br><span class="line">        """</span></span><br><span class="line">        <span class="keyword">if</span> self.isPalindromic(s):</span><br><span class="line">            <span class="keyword">return</span> s</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        l = len(s)</span><br><span class="line">        maxlen = <span class="number">0</span></span><br><span class="line">        h = <span class="number">0</span></span><br><span class="line">        t = l</span><br><span class="line">        <span class="keyword">while</span> (i &lt; l):</span><br><span class="line">            head = i</span><br><span class="line">            tail = i</span><br><span class="line">            flag = <span class="keyword">False</span></span><br><span class="line">            thislen = <span class="number">0</span></span><br><span class="line">            <span class="keyword">while</span> head &gt;= <span class="number">0</span> <span class="keyword">and</span> tail &lt; l <span class="keyword">and</span> head &lt;= tail:</span><br><span class="line">                <span class="keyword">if</span> s[head] != s[tail]:</span><br><span class="line">                    flag = <span class="keyword">False</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                thislen = tail - head+<span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> thislen &gt; maxlen:</span><br><span class="line">                    maxlen = thislen</span><br><span class="line">                    h = head</span><br><span class="line">                    t = tail</span><br><span class="line">                head -= <span class="number">1</span></span><br><span class="line">                tail += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># flag = True</span></span><br><span class="line">            head = i</span><br><span class="line">            tail = i + <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> head &gt;= <span class="number">0</span> <span class="keyword">and</span> tail &lt; l <span class="keyword">and</span> head &lt;= tail:</span><br><span class="line">                <span class="keyword">if</span> s[head] != s[tail]:</span><br><span class="line">                    flag = <span class="keyword">False</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                thislen = tail - head +<span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> thislen &gt; maxlen:</span><br><span class="line">                    maxlen = thislen</span><br><span class="line">                    h = head</span><br><span class="line">                    t = tail</span><br><span class="line">                head -= <span class="number">1</span></span><br><span class="line">                tail += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> s[h:t+<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -159,7 +167,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://zeco.ml/2017/03/06/Leetcode-278/" data-title="Leetcode-278 First Bad Version | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
+	  <div data-url="http://zeco.ml/2017/04/13/Leetcode-5/" data-title="Leetcode-5 Longest Palindromic Substring | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -173,18 +181,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/03/06/Leetcode-83/" title="Leetcode-83 Remove Duplicates from Sorted List">
+ <a href="/9999/12/31/welcome/" title="欢迎来到我的博客">
   <strong>上一篇：</strong><br/>
   <span>
-  Leetcode-83 Remove Duplicates from Sorted List</span>
+  欢迎来到我的博客</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/03/06/Leetcode-1/"  title="Leetcode-1 Two Sum">
+<a href="/2017/03/10/Leetcode-496/"  title="Leetcode-496 Next Greater Element I">
  <strong>下一篇：</strong><br/> 
- <span>Leetcode-1 Two Sum
+ <span>Leetcode-496 Next Greater Element I
 </span>
 </a>
 </div>
