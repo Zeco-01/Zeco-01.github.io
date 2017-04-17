@@ -60,7 +60,7 @@
     s.parentNode.insertBefore(bp, s);
 })();
 </script>
-
+<script src="/js/jquery-2.0.3.min.js"></script>
 </head>
 
       <body>
@@ -76,7 +76,7 @@
 				<h1 class="site-name"><a href="/" title="Zeco&#39;s blog">Zeco&#39;s blog</a></h1>
 				<h2 class="blog-motto">自动溜号机器人</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -92,7 +92,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:zeco.ml">
 					</form>
 					
@@ -116,7 +116,7 @@
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2016-05-19T04:48:12.000Z" itemprop="datePublished"> Published 2016-05-19</time>
+    <time datetime="2016-05-19T04:48:12.000Z" itemprop="datePublished"> 发表于 2016-05-19</time>
     
   </p>
 </header>
@@ -124,8 +124,31 @@
 	<div class="article-content">
 		
 		<p>我是<strong>张聪</strong>，本科毕业于<a href="http://www.dlut.edu.cn/" target="_blank" rel="external">大连理工大学</a>-<a href="http://ssdut.dlut.edu.cn/" target="_blank" rel="external">软件学院</a> 软件工程（日语强化）专业，现就读于<a href="http://www.dlut.edu.cn/" target="_blank" rel="external">大连理工大学</a>-<a href="http://ee.dlut.edu.cn/" target="_blank" rel="external">电子信息与电气工程学部</a> 计算机科学与技术专业。</p>
-  
+ 
 	</div>
+	<p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" style = "color:#fff;" title="打赏，支持一下">打赏</a></p>
+<div class="hide_box"></div>
+<div class="shang_box">
+	<a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="../../../../img/close.jpg" alt="取消" /></a>
+	
+	<div class="shang_payimg">
+		<img src="../../../../img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+	</div>
+		
+	<div class="shang_payselect">
+		<div class="pay_item checked" data-id="alipay">
+			<span class="radiobox"></span>
+			<span class="pay_logo"><img src="../../../../img/alipay.jpg" alt="支付宝" /></span>
+		</div>
+		<div class="pay_item" data-id="weipay">
+			<span class="radiobox"></span>
+			<span class="pay_logo"><img src="../../../../img/wechat.jpg" alt="微信" /></span>
+		</div>
+	</div>
+	<div class="shang_info">
+		<p>打开<span id="shang_pay_txt">支付宝</span>你的支持是对我最好的鼓励</p>
+	</div>
+</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
@@ -149,6 +172,43 @@
 
    	       
 	</article>
+	<style type="text/css">
+	
+	.hide_box{z-index:999;filter:alpha(opacity=50);background:#666;opacity: 0.5;-moz-opacity: 0.5;left:0;top:0;height:99%;width:100%;position:fixed;display:none;}
+	.shang_box{width:540px;height:300px;padding:30px;background-color:#fff;border-radius:10px;position:fixed;z-index:1000;left:50%;top:50%;margin-left:-280px;margin-top:-280px;border:1px dotted #dedede;display:none;}
+	.shang_box img{border:none;border-width:0;}
+	.dashang{display:block;width:100px;margin:0px auto 25px auto;height:25px;line-height:25px;padding:10px;background-color:#E74851;text-align:center;text-decoration:none;border-radius:10px;font-weight:bold;font-size:16px;transition: all 0.1s;}
+	.dashang:hover{padding:15px;font-size:18px;}
+	.shang_close{float:right;display:inline-block;}
+	.shang_logo{display:block;text-align:center;margin:20px auto;}
+	.shang_tit{width: 100%;height: 75px;text-align: center;line-height: 66px;color: #a3a3a3;font-size: 16px;background: url('../../../../img/cy-reward-title-bg.jpg');font-family: 'Microsoft YaHei';margin-top: 7px;margin-right:2px;}
+	.shang_tit p{color:#a3a3a3;text-align:center;font-size:16px;}
+	.shang_payimg{width:140px;padding:10px;border:6px solid #EA5F00;margin:0 auto;border-radius:3px;height:140px;}
+	.shang_payimg img{display:block;text-align:center;width:140px;height:140px; }
+	.pay_explain{text-align:center;margin:10px auto;font-size:12px;color:#545454;}
+	.radiobox{width: 16px;height: 16px;background: url('../../../../img/radio2.jpg');display: block;float: left;margin-top: 5px;margin-right: 14px;}
+	.checked .radiobox{background:url('../../../../img/radio1.jpg');}
+	.shang_payselect{text-align:center;margin:0 auto;margin-top:40px;cursor:pointer;height:60px;width:280px;}
+	.shang_payselect .pay_item{display:inline-block;margin-right:10px;float:left;}
+	.shang_info{clear:both;}
+	.shang_info p,.shang_info a{color:#C3C3C3;text-align:center;font-size:12px;text-decoration:none;line-height:2em;}
+</style>
+
+<script type="text/javascript">
+$(function(){
+	$(".pay_item").click(function(){
+		$(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+		var dataid=$(this).attr('data-id');
+		$(".shang_payimg img").attr("src","../../../../img/"+dataid+"img.jpg");
+		$("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+	});
+});
+function dashangToggle(){
+	$(".hide_box").fadeToggle();
+	$(".shang_box").fadeToggle();
+}
+</script>
+
 	
 	
 
@@ -367,7 +427,7 @@ $(document).ready(function(){
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
