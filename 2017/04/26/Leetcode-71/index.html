@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Leetcode-345 Reverse Vowels of a String | Zeco&#39;s blog</title>
+    <title>Leetcode-71 Simplify Path | Zeco&#39;s blog</title>
     <meta name="baidu-site-verification" content="szo8xhfejr" />
     <meta name="google-site-verification" content="_uVtfUmBEcmevomT5dpTdMBSAshmsJHV3gWBNTLX91I" />
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
@@ -13,16 +13,16 @@
     
 
     
-    <meta name="description" content="Leetcode-345的解题过程。">
+    <meta name="description" content="Leetcode-71的解题过程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode-345 Reverse Vowels of a String">
-<meta property="og:url" content="http://zeco.ml/2017/03/03/Leetcode-345/index.html">
+<meta property="og:title" content="Leetcode-71 Simplify Path">
+<meta property="og:url" content="http://zeco.ml/2017/04/26/Leetcode-71/index.html">
 <meta property="og:site_name" content="Zeco's blog">
-<meta property="og:description" content="Leetcode-345的解题过程。">
-<meta property="og:updated_time" content="2017-04-21T03:03:11.840Z">
+<meta property="og:description" content="Leetcode-71的解题过程。">
+<meta property="og:updated_time" content="2017-04-26T12:07:53.463Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode-345 Reverse Vowels of a String">
-<meta name="twitter:description" content="Leetcode-345的解题过程。">
+<meta name="twitter:title" content="Leetcode-71 Simplify Path">
+<meta name="twitter:description" content="Leetcode-71的解题过程。">
 
     
     <link rel="alternative" href="/atom.xml" title="Zeco&#39;s blog" type="application/atom+xml">
@@ -108,14 +108,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/03/Leetcode-345/" title="Leetcode-345 Reverse Vowels of a String" itemprop="url">Leetcode-345 Reverse Vowels of a String</a>
+      <a href="/2017/04/26/Leetcode-71/" title="Leetcode-71 Simplify Path" itemprop="url">Leetcode-71 Simplify Path</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-03T02:59:58.000Z" itemprop="datePublished"> Published 2017-03-03</time>
+    <time datetime="2017-04-26T11:58:53.000Z" itemprop="datePublished"> Published 2017-04-26</time>
     
   </p>
 </header>
@@ -129,17 +129,18 @@
 		
 		</div>
 		
-		<p>Leetcode-345的解题过程。<br><a id="more"></a></p>
+		<p>Leetcode-71的解题过程。<br><a id="more"></a></p>
 <ul>
 <li><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
-<p>Write a function that takes a string as input and reverse only the vowels of a string.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Example 1:</span><br><span class="line">Given s = &quot;hello&quot;, return &quot;holle&quot;.</span><br><span class="line">Example 2:</span><br><span class="line">Given s = &quot;leetcode&quot;, return &quot;leotcede&quot;.</span><br></pre></td></tr></table></figure>
+<p>Given an absolute path for a file (Unix-style), simplify it.<br>For example,<br>path = <code>&quot;/home/&quot;</code>, =&gt; <code>&quot;/home&quot;</code><br>path = <code>&quot;/a/./b/../../c/&quot;</code>, =&gt; “/c”</p>
 </blockquote>
 </li>
+<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>简化路径。这道题本身的逻辑不是很难，考虑到路径的层级特点，栈结构是比较适合用来做这道题的。将原始字符串按照<code>&quot;/&quot;</code>分割后，再根据分割后的每一层的路径来决定压栈或是弹栈。但是这道题中需要考虑的边界情况和特殊情况很多，例如：</p>
+</li>
 </ul>
-<p>Note:<br>The vowels does not include the letter “y”.</p>
 <ul>
-<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2>&emsp; 和<a href="http://zeco.ml/2017/03/03/leetcode-344/">Leetcode-344</a>类似，这道题也是关于反转字符串的问题，思路也类似，交换对称位置的字符就可以了。不同的是，从反转整个字符串变成了仅反转元音字母的顺序。因此，我们首先需要一个判断字母是不是元音的函数，这里要考虑一下大小写的问题。<br>&emsp; 其次，找对称位置的字符的时候也不能再单纯地使用下标来计算，这里我设置了两个计数器i和j，分别从字符串s的左侧和右侧进行扫描，当i找到一个元音字母的时候，j开始扫描，同样找到一个元音字母的时候，交换这两个字母的位置，以此类推。<br>代码如下：<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">reverseVowels</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> j = s.length()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(j&lt;<span class="number">1</span>)<span class="keyword">return</span> s;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length()<span class="number">-1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (v(s[i]))&#123;</span><br><span class="line">                <span class="keyword">for</span> (;j&gt;<span class="number">-1</span>;j--)&#123;</span><br><span class="line">                    <span class="keyword">if</span> (i&gt;=j)&#123;</span><br><span class="line">                        <span class="keyword">return</span> s;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span>(v(s[j]))&#123;</span><br><span class="line">                        <span class="keyword">char</span> temp = s[i];</span><br><span class="line">                        s[i] = s[j];</span><br><span class="line">                        s[j] =temp;</span><br><span class="line">                        j--;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">v</span><span class="params">(<span class="keyword">char</span> c)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (c==<span class="string">'a'</span>||c==<span class="string">'e'</span>||c==<span class="string">'i'</span>||c==<span class="string">'o'</span>||c==<span class="string">'u'</span>||c==<span class="string">'A'</span>||c==<span class="string">'E'</span>||c==<span class="string">'I'</span>||c==<span class="string">'O'</span>||c==<span class="string">'U'</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>路径为<code>&quot;/../&quot;</code>。在这种情况下，简化后的路径应当为<code>&quot;/&quot;</code>。</li>
+<li>路径中包含多个连续的<code>&quot;/&quot;</code>，例如<code>&quot;/home//foo/&quot;</code>。这种情况下应当去掉多余的<code>&quot;/&quot;</code>。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">simplifyPath</span><span class="params">(self, path)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        :type path: str</span><br><span class="line">        :rtype: str</span><br><span class="line">        """</span></span><br><span class="line">        <span class="keyword">if</span> path == <span class="string">'/'</span>:</span><br><span class="line">            <span class="keyword">return</span> path</span><br><span class="line">        </span><br><span class="line">        stack = []</span><br><span class="line">        subs = path.split(<span class="string">'/'</span>)</span><br><span class="line">        <span class="keyword">for</span> s <span class="keyword">in</span> subs:</span><br><span class="line">            <span class="keyword">if</span> s == <span class="string">'..'</span>:</span><br><span class="line">                <span class="keyword">if</span> len(stack) == <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    stack.pop()</span><br><span class="line">            <span class="keyword">elif</span> s == <span class="string">'.'</span> <span class="keyword">or</span> s == <span class="string">''</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                stack.append(s)</span><br><span class="line">        <span class="keyword">if</span> len(stack) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'/'</span></span><br><span class="line">        <span class="comment">#stack = stack[::-1]</span></span><br><span class="line">        </span><br><span class="line">        p = <span class="string">''</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> s <span class="keyword">in</span> stack:</span><br><span class="line">            p+=<span class="string">'/'</span></span><br><span class="line">            p+=s</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> p</span><br></pre></td></tr></table></figure></li>
 </ul>
  
 	</div>
@@ -174,7 +175,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Leetcode/">Leetcode</a><a href="/tags/算法/">算法</a><a href="/tags/C-C/">C/C++</a>
+  <span></span> <a href="/tags/Leetcode/">Leetcode</a><a href="/tags/算法/">算法</a><a href="/tags/python/">python</a>
   </div>
 
 
@@ -184,7 +185,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://zeco.ml/2017/03/03/Leetcode-345/" data-title="Leetcode-345 Reverse Vowels of a String | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
+	  <div data-url="http://zeco.ml/2017/04/26/Leetcode-71/" data-title="Leetcode-71 Simplify Path | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -235,18 +236,18 @@ function dashangToggle(){
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/03/06/Leetcode-1/" title="Leetcode-1 Two Sum">
+ <a href="/9999/12/31/welcome/" title="欢迎来到我的博客">
   <strong>上一篇：</strong><br/>
   <span>
-  Leetcode-1 Two Sum</span>
+  欢迎来到我的博客</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/03/03/leetcode-344/"  title="Leetcode-344 Reverse String">
+<a href="/2017/04/26/Leetcode-135/"  title="Leetcode-135 Candy">
  <strong>下一篇：</strong><br/> 
- <span>Leetcode-344 Reverse String
+ <span>Leetcode-135 Candy
 </span>
 </a>
 </div>
