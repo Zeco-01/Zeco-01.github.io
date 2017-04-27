@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>http://zeco.ml/2017/04/13/Leetcode-5/</loc>
+    <lastmod>2017-04-26T12:22:38.872Z</lastmod>
+    <data>
+        <display>
+        <title>Leetcode-5 Longest Palindromic Substring</title>
+        <pubTime>2017-04-13T11:27:06.000Z</pubTime>
+        
+        <tag>Leetcode</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>python</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zeco.ml/2017/04/26/Leetcode-71/</loc>
     <lastmod>2017-04-26T12:07:53.463Z</lastmod>
     <data>
@@ -226,27 +247,6 @@
         <tag>算法</tag>
          
         <tag>C/C++</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2017/04/13/Leetcode-5/</loc>
-    <lastmod>2017-04-21T03:02:06.838Z</lastmod>
-    <data>
-        <display>
-        <title>Leetcode-5 Longest Palindromic Substring</title>
-        <pubTime>2017-04-13T11:27:06.000Z</pubTime>
-        
-        <tag>Leetcode</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>C#</tag>
          
          
            
