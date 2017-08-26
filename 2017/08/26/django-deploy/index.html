@@ -4,7 +4,7 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>Leetcode-455 Assign Cookies | Zeco&#39;s blog</title>
+    <title>UWSGI+NGINX+DJANGO 阿里云ECS部署历险记 | Zeco&#39;s blog</title>
     <meta name="baidu-site-verification" content="szo8xhfejr" />
     <meta name="google-site-verification" content="_uVtfUmBEcmevomT5dpTdMBSAshmsJHV3gWBNTLX91I" />
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
@@ -13,16 +13,25 @@
     
 
     
-    <meta name="description" content="Leetcode-455的解题过程。">
+    <meta name="description" content="前言因为最近老师要承办一个会议，所以做了一个会议注册的系统。为了简单方便采用了django来做后端，前端就干脆手写一个表单。（特别鸣谢@泽华帮我实现了后端的逻辑） 本地调试当然很简单，直接使用1python manage.py runserver
+
+
+就可以开一个本地服务器来进行调试。但是生产环境下显然不能用这个服务器，原因是runserver命令所创建的服务器不仅是单线程的，而且没法从外部网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode-455 Assign Cookies">
-<meta property="og:url" content="http://zeco.ml/2017/03/06/Leetcode-455/index.html">
+<meta property="og:title" content="UWSGI+NGINX+DJANGO 阿里云ECS部署历险记">
+<meta property="og:url" content="http://zeco.ml/2017/08/26/django-deploy/index.html">
 <meta property="og:site_name" content="Zeco's blog">
-<meta property="og:description" content="Leetcode-455的解题过程。">
-<meta property="og:updated_time" content="2017-04-21T03:11:44.863Z">
+<meta property="og:description" content="前言因为最近老师要承办一个会议，所以做了一个会议注册的系统。为了简单方便采用了django来做后端，前端就干脆手写一个表单。（特别鸣谢@泽华帮我实现了后端的逻辑） 本地调试当然很简单，直接使用1python manage.py runserver
+
+
+就可以开一个本地服务器来进行调试。但是生产环境下显然不能用这个服务器，原因是runserver命令所创建的服务器不仅是单线程的，而且没法从外部网络">
+<meta property="og:updated_time" content="2017-08-26T14:25:44.751Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode-455 Assign Cookies">
-<meta name="twitter:description" content="Leetcode-455的解题过程。">
+<meta name="twitter:title" content="UWSGI+NGINX+DJANGO 阿里云ECS部署历险记">
+<meta name="twitter:description" content="前言因为最近老师要承办一个会议，所以做了一个会议注册的系统。为了简单方便采用了django来做后端，前端就干脆手写一个表单。（特别鸣谢@泽华帮我实现了后端的逻辑） 本地调试当然很简单，直接使用1python manage.py runserver
+
+
+就可以开一个本地服务器来进行调试。但是生产环境下显然不能用这个服务器，原因是runserver命令所创建的服务器不仅是单线程的，而且没法从外部网络">
 
     
     <link rel="alternative" href="/atom.xml" title="Zeco&#39;s blog" type="application/atom+xml">
@@ -109,14 +118,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/06/Leetcode-455/" title="Leetcode-455 Assign Cookies" itemprop="url">Leetcode-455 Assign Cookies</a>
+      <a href="/2017/08/26/django-deploy/" title="UWSGI+NGINX+DJANGO 阿里云ECS部署历险记" itemprop="url">UWSGI+NGINX+DJANGO 阿里云ECS部署历险记</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-06T07:09:40.000Z" itemprop="datePublished"> 发表于 2017-03-06</time>
+    <time datetime="2017-08-26T12:43:32.000Z" itemprop="datePublished"> 发表于 2017-08-26</time>
     
   </p>
 </header>
@@ -126,20 +135,40 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析"><span class="toc-number">2.</span> <span class="toc-text">解析</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始部署"><span class="toc-number">3.</span> <span class="toc-text">开始部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新"><span class="toc-number">4.</span> <span class="toc-text">更新</span></a></li></ol>
 		
 		</div>
 		
-		<p>Leetcode-455的解题过程。<br><a id="more"></a></p>
-<ul>
-<li><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
-<p>Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie. Each child i has a greed factor gi, which is the minimum size of a cookie that the child will be content with; and each cookie j has a size sj. If sj &gt;= gi, we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximize the number of your content children and output the maximum number.   <br><br>Note:<br>You may assume the greed factor is always positive.<br>You cannot assign more than one cookie to one child.   <br></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">   - Example 1:</span><br><span class="line">Input: [1,2,3], [1,1]  </span><br><span class="line">Output: 1  </span><br><span class="line">Explanation: You have 3 children and 2 cookies. The greed factors of 3 children are 1, 2, 3. </span><br><span class="line">And even though you have 2 cookies, since their size is both 1, you could only make the child whose greed factor is 1 content.</span><br><span class="line">You need to output 1.</span><br><span class="line">  </span><br><span class="line">- Example 2:</span><br><span class="line">Input: [1,2], [1,2,3]   </span><br><span class="line">Output: 2  </span><br><span class="line">Explanation: You have 2 children and 3 cookies. The greed factors of 2 children are 1, 2. </span><br><span class="line">You have 3 cookies and their sizes are big enough to gratify all of the children, </span><br><span class="line">You need to output 2.</span><br></pre></td></tr></table></figure>
-</blockquote>
+		<ul>
+<li><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2>因为最近老师要承办一个会议，所以做了一个会议注册的系统。为了简单方便采用了django来做后端，前端就干脆手写一个表单。（特别鸣谢<a href="https://zehualee.github.io/" target="_blank" rel="external">@泽华</a>帮我实现了后端的逻辑） 本地调试当然很简单，直接使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver</span><br></pre></td></tr></table></figure>
 </li>
-<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>&emsp; 给小朋友分饼干，每个小朋友有一个贪婪值表示能满足他的最小饼干大小。简单的贪心算法的应用。基本思路是：将小朋友们按照贪婪值升序排列，随后遍历，从所有饼干中挑一个最小并且能满足他的饼干。</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">FindContentChildren</span>(<span class="params"><span class="keyword">int</span>[] g, <span class="keyword">int</span>[] s</span>) </span>&#123;</span><br><span class="line">        Array.Sort(g);</span><br><span class="line">        Array.Sort(s);<span class="comment">//饼干也按照大小升序排列</span></span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] sf = <span class="keyword">new</span> <span class="keyword">int</span>[s.Length];<span class="comment">//标记数组，1代表没有满足，0代表已经满足</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;sf.Length;i++)&#123;</span><br><span class="line">            sf[i]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;g.Length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;s.Length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (s[j]&gt;=g[i] &amp;&amp; sf[j]==<span class="number">1</span>)&#123;</span><br><span class="line">                    count++;</span><br><span class="line">                    sf[j]=<span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
+<p>就可以开一个本地服务器来进行调试。但是生产环境下显然不能用这个服务器，原因是runserver命令所创建的服务器不仅是单线程的，而且没法从外部网络进行访问。由于已经租用了centos系统的阿里云ECS云服务器，所以要将已经实现好的网站以生产环境的方式部署在服务器上，踩坑就此开始。。</p>
+<ul>
+<li><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2>之前完全没有接触过django的部署，所以还是拿出看家本事“百谷”去了解。查了一些资料得知，单独的django是没办法直接部署在生产环境的，必须配合其他一些专门的http服务器工具来进行搭建。还是本着简单方便的原则，选取了UWSGI+NGINX来配合django进行部署。<br>首先当然是uwsgi和nginx的安装了，centos系统下使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install uwsgi</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>和<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx</span><br></pre></td></tr></table></figure></p>
+<p>就可以很方便地安装这两个工具，需要注意的一点是，阿里云上的centos默认安装的是运行版而不是开发版的开发环境，所以在安装uwsgi的时候可能会出现找不到<python.h>的错误，解决办法是：通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install python-devel</span><br></pre></td></tr></table></figure></python.h></p>
+<p>安装python开发环境即可。</p>
+<ul>
+<li><h2 id="开始部署"><a href="#开始部署" class="headerlink" title="开始部署"></a>开始部署</h2>环境有了，下一步就该部署网站了。首先面对的问题就是如何把网站的代码上传到服务器上。这一步方法比较多，可以通过linux下的scp命令上传，或者如果你本地的系统是linux系统的话还可以用sshfs把服务器的目录远程挂载在本地进行方便的可视化操作。我采用的方法则是通过git来进行同步，因为我比较懒不想在我的Windows上用putty而是是直接用阿里云的网页版ssh。采用git方法的话，还可以通过git hooks来监测远程代码库的更新，并自动地更新网站服务器（虽然这一步我没有做）。<br>阿里云的centos没有自带git，所以也要安装一下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install git</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>我这里使用github作为远程git代码库，那么首先把库clone下来（xxx代表库的名字）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Zeco-01/xxx.git</span><br></pre></td></tr></table></figure></p>
+<p>接下来就是正式的部署了。首先，要为uwsgi创建一个配置文件，我直接创建在工程根目录下并命名为uwsgi.ini。（uwsgi也支持xml的配置方式）文件的内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[uwsgi]</span><br><span class="line">socket = 127.0.0.1:9090 #nginx和uwsgi之间socket通信的地址和端口</span><br><span class="line">chdir=/home/xxx/xxx #uwsgi启动后自动切换路径至此文件夹，我这里选择的是工程的根目录，也就是mange.py所在的目录</span><br><span class="line">module=/home/xxx/xxx/xxx/xxx.wsgi #wsgi文件，指的实际上是对应目录下的uwsgi.py，只不过这里要写成“工程名.wsgi”的形式</span><br><span class="line">master = true         </span><br><span class="line">processes=2 #进程数</span><br><span class="line">threads=2 #每个进程的线程数</span><br><span class="line">max-requests=2000 #最大请求数</span><br><span class="line">chmod-socket=664</span><br><span class="line">vacuum=true</span><br><span class="line">daemonize = /home/xxx/xxx/uwsgi.log #uwsgi日志文件路径</span><br></pre></td></tr></table></figure></p>
+<p>设置好配置文件后，可以通过：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uwsgi --ini uwsgi.ini</span><br></pre></td></tr></table></figure></p>
+<p>来启动uwsgi。<br>接下来，要为我们的工程创建nginx配置文件。（为了简单）我们可以直接在默认配置的基础上进行修改。默认配置文件的路径为/etc/nginx/nginx.conf 将其复制一份并重命名为xxx.conf，放在/usr/share/nginx/目录下。同时也要将默认路径下的uwsgi_params复制到该目录下，否则nginx无法识别uwsgi。<br>在xxx.conf中修改server{}一段如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name localhost;</span><br><span class="line">    charset     utf-8;</span><br><span class="line">    access_log      /var/log/nginx_access.log;</span><br><span class="line">    error_log       /var/log/nginx_error.log;</span><br><span class="line">    client_max_body_size 75M;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    location /static &#123;</span><br><span class="line">        alias /home/xxx/xxx/common_static;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        include     /usr/share/nginx/uwsgi_params;</span><br><span class="line">        uwsgi_pass  127.0.0.1:9090;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>设置好配置文件后即可通过以下命令启动nginx：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -c xxx.conf</span><br></pre></td></tr></table></figure></p>
+<p>至此就大功告成了！在浏览器中直接访问服务器的ip（+django里对应的url）应当就可以显示出网站的页面了。</p>
+<ul>
+<li><h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2>不使用git hooks进行自动更新配置的话，在更新网站时首先要使用以下命令更新代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin master</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果想更新的分支不是master的话，对应地更改即可。<br>然后要重启uwsgi：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">killall -9 uwsgi</span><br><span class="line">uwsgi --ini uwsgi.ini</span><br></pre></td></tr></table></figure></p>
+<p>有必要的话还可重启nginx：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure></p>
+<p>如果想要关闭nginx，则使用以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s quit</span><br></pre></td></tr></table></figure></p>
+<p>至此部署就全部完成了！</p>
  
 	</div>
 	<p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" style = "color:#fff;" title="打赏，支持一下">打赏</a></p>
@@ -173,7 +202,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Leetcode/">Leetcode</a><a href="/tags/算法/">算法</a><a href="/tags/C/">C#</a>
+  <span></span> <a href="/tags/pyhon-django-阿里云/">pyhon,django,阿里云</a>
   </div>
 
 
@@ -183,7 +212,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://zeco.ml/2017/03/06/Leetcode-455/" data-title="Leetcode-455 Assign Cookies | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
+	  <div data-url="http://zeco.ml/2017/08/26/django-deploy/" data-title="UWSGI+NGINX+DJANGO 阿里云ECS部署历险记 | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -234,18 +263,18 @@ function dashangToggle(){
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/03/08/Leetcode-165/" title="Leetcode-165 Compare Version Numbers">
+ <a href="/9999/12/31/welcome/" title="欢迎来到我的博客">
   <strong>上一篇：</strong><br/>
   <span>
-  Leetcode-165 Compare Version Numbers</span>
+  欢迎来到我的博客</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/03/06/Leetcode-83/"  title="Leetcode-83 Remove Duplicates from Sorted List">
+<a href="/2017/06/26/Leetcode-217/"  title="Leetcode-217 Contains Duplicate">
  <strong>下一篇：</strong><br/> 
- <span>Leetcode-83 Remove Duplicates from Sorted List
+ <span>Leetcode-217 Contains Duplicate
 </span>
 </a>
 </div>
@@ -266,7 +295,7 @@ function dashangToggle(){
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析"><span class="toc-number">2.</span> <span class="toc-text">解析</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始部署"><span class="toc-number">3.</span> <span class="toc-text">开始部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新"><span class="toc-number">4.</span> <span class="toc-text">更新</span></a></li></ol>
  
   </div>
 
