@@ -13,25 +13,16 @@
     
 
     
-    <meta name="description" content="前言因为最近老师要承办一个会议，所以做了一个会议注册的系统。为了简单方便采用了django来做后端，前端就干脆手写一个表单。（特别鸣谢@泽华帮我实现了后端的逻辑） 本地调试当然很简单，直接使用1python manage.py runserver
-
-
-就可以开一个本地服务器来进行调试。但是生产环境下显然不能用这个服务器，原因是runserver命令所创建的服务器不仅是单线程的，而且没法从外部网">
+    <meta name="description" content="前言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UWSGI+NGINX+DJANGO 阿里云ECS部署历险记">
 <meta property="og:url" content="http://zeco.ml/2017/08/26/django-deploy/index.html">
 <meta property="og:site_name" content="Zeco's blog">
-<meta property="og:description" content="前言因为最近老师要承办一个会议，所以做了一个会议注册的系统。为了简单方便采用了django来做后端，前端就干脆手写一个表单。（特别鸣谢@泽华帮我实现了后端的逻辑） 本地调试当然很简单，直接使用1python manage.py runserver
-
-
-就可以开一个本地服务器来进行调试。但是生产环境下显然不能用这个服务器，原因是runserver命令所创建的服务器不仅是单线程的，而且没法从外部网">
-<meta property="og:updated_time" content="2017-08-26T14:28:58.185Z">
+<meta property="og:description" content="前言">
+<meta property="og:updated_time" content="2017-08-26T14:30:50.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UWSGI+NGINX+DJANGO 阿里云ECS部署历险记">
-<meta name="twitter:description" content="前言因为最近老师要承办一个会议，所以做了一个会议注册的系统。为了简单方便采用了django来做后端，前端就干脆手写一个表单。（特别鸣谢@泽华帮我实现了后端的逻辑） 本地调试当然很简单，直接使用1python manage.py runserver
-
-
-就可以开一个本地服务器来进行调试。但是生产环境下显然不能用这个服务器，原因是runserver命令所创建的服务器不仅是单线程的，而且没法从外部网">
+<meta name="twitter:description" content="前言">
 
     
     <link rel="alternative" href="/atom.xml" title="Zeco&#39;s blog" type="application/atom+xml">
@@ -85,7 +76,7 @@
 				<h1 class="site-name"><a href="/" title="Zeco&#39;s blog">Zeco&#39;s blog</a></h1>
 				<h2 class="blog-motto">I think, I code, I run</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -101,7 +92,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:zeco.ml">
 					</form>
 					
@@ -125,7 +116,7 @@
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2017-08-26T12:43:32.000Z" itemprop="datePublished"> 发表于 2017-08-26</time>
+    <time datetime="2017-08-26T12:43:32.000Z" itemprop="datePublished"> Published 2017-08-26</time>
     
   </p>
 </header>
@@ -133,15 +124,15 @@
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">Contents</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始部署"><span class="toc-number">3.</span> <span class="toc-text">开始部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新"><span class="toc-number">4.</span> <span class="toc-text">更新</span></a></li></ol>
 		
 		</div>
 		
-		<a id="more"></a>
-<ul>
-<li><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2>因为最近老师要承办一个会议，所以做了一个会议注册的系统。为了简单方便采用了django来做后端，前端就干脆手写一个表单。（特别鸣谢<a href="https://zehualee.github.io/" target="_blank" rel="external">@泽华</a>帮我实现了后端的逻辑） 本地调试当然很简单，直接使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver</span><br></pre></td></tr></table></figure>
+		<ul>
+<li><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><a id="more"></a>
+因为最近老师要承办一个会议，所以做了一个会议注册的系统。为了简单方便采用了django来做后端，前端就干脆手写一个表单。（特别鸣谢<a href="https://zehualee.github.io/" target="_blank" rel="external">@泽华</a>帮我实现了后端的逻辑） 本地调试当然很简单，直接使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>就可以开一个本地服务器来进行调试。但是生产环境下显然不能用这个服务器，原因是runserver命令所创建的服务器不仅是单线程的，而且没法从外部网络进行访问。由于已经租用了centos系统的阿里云ECS云服务器，所以要将已经实现好的网站以生产环境的方式部署在服务器上，踩坑就此开始。。</p>
@@ -294,7 +285,7 @@ function dashangToggle(){
       
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">Contents</strong>
  
  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始部署"><span class="toc-number">3.</span> <span class="toc-text">开始部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新"><span class="toc-number">4.</span> <span class="toc-text">更新</span></a></li></ol>
  
@@ -321,7 +312,7 @@ function dashangToggle(){
 
 
 <div>
-	<p class="asidetitle">标签</p>
+	<p class="asidetitle">Tags</p>
 		<div id="mytagcloud" style="margin-top:10px">
 		
 		
@@ -374,15 +365,15 @@ function dashangToggle(){
 			
 		
 			
+				<a href="/tags/杂项/" style="display:none" title="杂项">杂项</a>
+			
+		
+			
 				<a href="/tags/unicode/" style="display:none" title="unicode">unicode</a>
 			
 		
 			
 				<a href="/tags/编码/" style="display:none" title="编码">编码</a>
-			
-		
-			
-				<a href="/tags/杂项/" style="display:none" title="杂项">杂项</a>
 			
 		
 		</ul>
@@ -392,7 +383,7 @@ function dashangToggle(){
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -654,7 +645,7 @@ $(document).ready(function(){
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
