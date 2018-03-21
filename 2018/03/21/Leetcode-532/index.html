@@ -4,7 +4,7 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>Leetcode-496 Next Greater Element I | Zeco&#39;s blog</title>
+    <title>Leetcode-532 K-diff Pairs in an Array | Zeco&#39;s blog</title>
     <meta name="baidu-site-verification" content="szo8xhfejr" />
     <meta name="google-site-verification" content="_uVtfUmBEcmevomT5dpTdMBSAshmsJHV3gWBNTLX91I" />
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
@@ -13,16 +13,16 @@
     
 
     
-    <meta name="description" content="Leetcode-496的解题过程。">
+    <meta name="description" content="Leetcode-532的解题过程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode-496 Next Greater Element I">
-<meta property="og:url" content="http://zeco.ml/2017/03/10/Leetcode-496/index.html">
+<meta property="og:title" content="Leetcode-532 K-diff Pairs in an Array">
+<meta property="og:url" content="http://zeco.ml/2018/03/21/Leetcode-532/index.html">
 <meta property="og:site_name" content="Zeco's blog">
-<meta property="og:description" content="Leetcode-496的解题过程。">
-<meta property="og:updated_time" content="2017-04-21T03:04:22.477Z">
+<meta property="og:description" content="Leetcode-532的解题过程。">
+<meta property="og:updated_time" content="2018-03-21T08:47:37.406Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode-496 Next Greater Element I">
-<meta name="twitter:description" content="Leetcode-496的解题过程。">
+<meta name="twitter:title" content="Leetcode-532 K-diff Pairs in an Array">
+<meta name="twitter:description" content="Leetcode-532的解题过程。">
 
     
     <link rel="alternative" href="/atom.xml" title="Zeco&#39;s blog" type="application/atom+xml">
@@ -109,14 +109,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/10/Leetcode-496/" title="Leetcode-496 Next Greater Element I" itemprop="url">Leetcode-496 Next Greater Element I</a>
+      <a href="/2018/03/21/Leetcode-532/" title="Leetcode-532 K-diff Pairs in an Array" itemprop="url">Leetcode-532 K-diff Pairs in an Array</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-10T05:44:45.000Z" itemprop="datePublished"> Published 2017-03-10</time>
+    <time datetime="2018-03-21T08:37:20.000Z" itemprop="datePublished"> Published 2018-03-21</time>
     
   </p>
 </header>
@@ -130,21 +130,19 @@
 		
 		</div>
 		
-		<p>Leetcode-496的解题过程。<br><a id="more"></a></p>
+		<p>Leetcode-532的解题过程。<br><a id="more"></a></p>
 <ul>
 <li><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
-<p>You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1’s elements in the corresponding places of nums2.<br>The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2. If it does not exist, output -1 for this number.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Example 1:</span><br><span class="line">Input: nums1 = [4,1,2], nums2 = [1,3,4,2].</span><br><span class="line">Output: [-1,3,-1]</span><br><span class="line">Explanation:</span><br><span class="line">    For number 4 in the first array, you cannot find the next greater number for it in the second array, so output -1.</span><br><span class="line">    For number 1 in the first array, the next greater number for it in the second array is 3.</span><br><span class="line">    For number 2 in the first array, there is no next greater number for it in the second array, so output -1.</span><br><span class="line">Example 2:</span><br><span class="line">Input: nums1 = [2,4], nums2 = [1,2,3,4].</span><br><span class="line">Output: [3,-1]</span><br><span class="line">Explanation:</span><br><span class="line">    For number 2 in the first array, the next greater number for it in the second array is 3.</span><br><span class="line">    For number 4 in the first array, there is no next greater number for it in the second array, so output -1.</span><br></pre></td></tr></table></figure>
+<p>Given an array of integers and an integer k, you need to find the number of unique k-diff pairs in the array. Here a k-diff pair is defined as an integer pair (i, j), where i and j are both numbers in the array and their absolute difference is k.<br>Example 1:<br>Input: [3, 1, 4, 1, 5], k = 2<br>Output: 2<br>Explanation: There are two 2-diff pairs in the array, (1, 3) and (3, 5).<br>Although we have two 1s in the input, we should only return the number of unique pairs.<br>Example 2:<br>Input:[1, 2, 3, 4, 5], k = 1<br>Output: 4<br>Explanation: There are four 1-diff pairs in the array, (1, 2), (2, 3), (3, 4) and (4, 5).<br>Example 3:<br>Input: [1, 3, 1, 5, 4], k = 0<br>Output: 1<br>Explanation: There is one 0-diff pair in the array, (1, 1).<br>Note:</p>
+<ol>
+<li>The pairs (i, j) and (j, i) count as the same pair.</li>
+<li>The length of the array won’t exceed 10,000.</li>
+<li>All the integers in the given input belong to the range: [-1e7, 1e7].</li>
+</ol>
 </blockquote>
 </li>
-</ul>
-<p>Note:</p>
-<ol>
-<li>All elements in nums1 and nums2 are unique.</li>
-<li>The length of both nums1 and nums2 would not exceed 1000.</li>
-</ol>
-<ul>
-<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2>给定两个没有重复元素的数组num1和num2,num1是num2的子集，对于num1中的每个元素a，要求找到在num2中a右边第一个比a大的元素，找不到返回-1。Easy题一道，没什么技术含量，根据题意直接搜索就行了。<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span>[] <span class="title">NextGreaterElement</span>(<span class="params"><span class="keyword">int</span>[] findNums, <span class="keyword">int</span>[] nums</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[findNums.Length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;findNums.Length;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> index = Array.IndexOf(nums,findNums[i]);</span><br><span class="line">            <span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=index+<span class="number">1</span>;j&lt;nums.Length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[j]&gt;findNums[i])&#123;</span><br><span class="line">                    result[i] = nums[j];</span><br><span class="line">                    flag = <span class="literal">true</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (!flag)&#123;</span><br><span class="line">                result[i] = <span class="number">-1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>Easy题，大意是在一个数组中统计相差为k的元素对的个数。暴搜的时间复杂度是$O(n^2)$，不可取。比较容易想到的是先对数组排序，在升序数组中用前后两个指针遍历。如果两个指针对应的元素之差小于k，则后面指针前进一步，反之前面指针前进一步，刚好等于k则找到一个符合条件的元素对，同时后面指针前进一步。可以把时间复杂度降到$O(n\log{n})$。整体思路不难，需要注意的是待统计的元素对是不讲顺序的，并且同样的元素对只计算一次。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findPairs</span><span class="params">(self, nums, k)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :type k: int</span><br><span class="line">        :rtype: int</span><br><span class="line">        """</span></span><br><span class="line">        <span class="keyword">if</span> len(nums)&lt;<span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        nums = sorted(nums)</span><br><span class="line">        first = nums[<span class="number">0</span>]</span><br><span class="line">        pairs = set()</span><br><span class="line">        j=<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i]-first&gt;=k:</span><br><span class="line">                j=i</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        i=<span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i&lt;len(nums) <span class="keyword">and</span> j &lt; len(nums):</span><br><span class="line">            <span class="keyword">if</span> nums[j]-nums[i]&lt;k:</span><br><span class="line">                j+=<span class="number">1</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">elif</span> nums[j]-nums[i]==k:</span><br><span class="line">                pairs.add((nums[i],nums[j]))</span><br><span class="line">                j+=<span class="number">1</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                i+=<span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> i==j:</span><br><span class="line">                    j+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> len(pairs)</span><br></pre></td></tr></table></figure></li>
 </ul>
  
 	</div>
@@ -179,7 +177,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Leetcode/">Leetcode</a><a href="/tags/算法/">算法</a><a href="/tags/C/">C#</a>
+  <span></span> <a href="/tags/Leetcode/">Leetcode</a><a href="/tags/算法/">算法</a><a href="/tags/python/">python</a>
   </div>
 
 
@@ -189,7 +187,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://zeco.ml/2017/03/10/Leetcode-496/" data-title="Leetcode-496 Next Greater Element I | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
+	  <div data-url="http://zeco.ml/2018/03/21/Leetcode-532/" data-title="Leetcode-532 K-diff Pairs in an Array | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -240,18 +238,18 @@ function dashangToggle(){
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/04/13/Leetcode-5/" title="Leetcode-5 Longest Palindromic Substring">
+ <a href="/9999/12/31/welcome/" title="欢迎来到我的博客">
   <strong>上一篇：</strong><br/>
   <span>
-  Leetcode-5 Longest Palindromic Substring</span>
+  欢迎来到我的博客</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/03/09/Leetcode-492/"  title="Leetcode-492  Construct the Rectangle">
+<a href="/2017/08/26/django-deploy/"  title="UWSGI+NGINX+DJANGO 阿里云ECS部署历险记">
  <strong>下一篇：</strong><br/> 
- <span>Leetcode-492  Construct the Rectangle
+ <span>UWSGI+NGINX+DJANGO 阿里云ECS部署历险记
 </span>
 </a>
 </div>
