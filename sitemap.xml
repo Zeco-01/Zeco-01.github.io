@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zeco.ml/about/index.html</loc>
+    
+    <lastmod>2018-11-16T13:35:23.645Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zeco.ml/2018/03/21/Leetcode-532/</loc>
     
     <lastmod>2018-03-21T08:47:37.406Z</lastmod>
@@ -124,13 +131,6 @@
     <loc>http://zeco.ml/9999/12/31/welcome/</loc>
     
     <lastmod>2016-09-12T12:16:41.848Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zeco.ml/about/index.html</loc>
-    
-    <lastmod>2016-09-09T06:35:43.050Z</lastmod>
     
   </url>
   
