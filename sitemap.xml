@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zeco.ml/2018/11/30/install-ycm/</loc>
+    
+    <lastmod>2018-11-30T17:01:28.849Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zeco.ml/2017/08/26/django-deploy/</loc>
+    
+    <lastmod>2018-11-30T13:06:08.439Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zeco.ml/about/index.html</loc>
     
     <lastmod>2018-11-16T13:35:23.645Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://zeco.ml/2018/03/21/Leetcode-532/</loc>
     
     <lastmod>2018-03-21T08:47:37.406Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zeco.ml/2017/08/26/django-deploy/</loc>
-    
-    <lastmod>2017-08-26T14:30:50.004Z</lastmod>
     
   </url>
   
