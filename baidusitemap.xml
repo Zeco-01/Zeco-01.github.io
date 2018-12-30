@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://zeco.ml/9999/12/31/welcome/</loc>
+    <lastmod>2018-12-30T06:19:40.640Z</lastmod>
+    <data>
+        <display>
+        <title>欢迎来到我的博客</title>
+        <pubTime>9999-12-31T15:59:59.000Z</pubTime>
+        
+        <tag>杂项</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zeco.ml/2018/11/30/install-ycm/</loc>
     <lastmod>2018-11-30T17:01:28.849Z</lastmod>
     <data>
@@ -372,23 +389,6 @@
         <tag>NLP</tag>
          
         <tag>NLPCC评测</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/9999/12/31/welcome/</loc>
-    <lastmod>2016-09-12T12:16:41.848Z</lastmod>
-    <data>
-        <display>
-        <title>欢迎来到我的博客</title>
-        <pubTime>9999-12-31T15:59:59.000Z</pubTime>
-        
-        <tag>杂项</tag>
          
          
            

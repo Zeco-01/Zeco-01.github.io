@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zeco.ml/9999/12/31/welcome/</loc>
+    
+    <lastmod>2018-12-30T06:19:40.640Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zeco.ml/2018/11/30/install-ycm/</loc>
     
     <lastmod>2018-11-30T17:01:28.849Z</lastmod>
@@ -131,13 +138,6 @@
     <loc>http://zeco.ml/2016/09/09/NLPCC2016-Chinese-Word-Simlarity/</loc>
     
     <lastmod>2016-09-12T12:17:09.134Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zeco.ml/9999/12/31/welcome/</loc>
-    
-    <lastmod>2016-09-12T12:16:41.848Z</lastmod>
     
   </url>
   
