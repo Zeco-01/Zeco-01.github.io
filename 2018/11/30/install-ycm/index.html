@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="Zeco's blog">
 <meta property="og:description" content="本文将讲述我是如何安装使用vim的代码补全插件YouCompleteMe的。">
 <meta property="og:image" content="http://zeco.ml/../../../../img/ycm.gif">
-<meta property="og:updated_time" content="2018-11-30T17:01:28.849Z">
+<meta property="og:updated_time" content="2019-08-22T15:54:15.999Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim代码补全插件YouCompleteMe的安装和使用">
 <meta name="twitter:description" content="本文将讲述我是如何安装使用vim的代码补全插件YouCompleteMe的。">
@@ -128,7 +128,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#真正的安装"><span class="toc-number">3.</span> <span class="toc-text">真正的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#坑1-Your-C-compiler-does-NOT-fully-support-C-11"><span class="toc-number">3.1.</span> <span class="toc-text">坑1 Your C++ compiler does NOT fully support C++11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-The-ycmd-server-SHUT-DOWN-restart-with-ycmrestartserver-…"><span class="toc-number">3.2.</span> <span class="toc-text">坑2 The ycmd server SHUT DOWN (restart with ycmrestartserver)…</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-1-ycm-core-so-undifined-symbol-clang-parseTranslationUnit2FullArgv"><span class="toc-number">3.3.</span> <span class="toc-text">坑2.1 ycm_core.so: undifined symbol: clang_parseTranslationUnit2FullArgv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-2-Import-Error-lib64-libc-so-6-version-‘GLIBC-2-15’-not-found"><span class="toc-number">3.4.</span> <span class="toc-text">坑2.2 Import Error: /lib64/libc.so.6: version ‘GLIBC_2.15’ not found</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑3-No-ycm-extra-conf-py-detected-amp-amp-Attribute-Error-‘module’-object-has-no-attribute-‘FlagsForFile’"><span class="toc-number">3.5.</span> <span class="toc-text">坑3 No .ycm_extra_conf.py detected. && Attribute Error: ‘module’ object has no attribute ‘FlagsForFile’</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">4.</span> <span class="toc-text">配置</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#真正的安装"><span class="toc-number">3.</span> <span class="toc-text">真正的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#坑1-Your-C-compiler-does-NOT-fully-support-C-11"><span class="toc-number">3.1.</span> <span class="toc-text">坑1 Your C++ compiler does NOT fully support C++11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-The-ycmd-server-SHUT-DOWN-restart-with-ycmrestartserver-…"><span class="toc-number">3.2.</span> <span class="toc-text">坑2 The ycmd server SHUT DOWN (restart with ycmrestartserver)…</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-1-ycm-core-so-undifined-symbol-clang-parseTranslationUnit2FullArgv"><span class="toc-number">3.3.</span> <span class="toc-text">坑2.1 ycm_core.so: undifined symbol: clang_parseTranslationUnit2FullArgv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-2-Import-Error-lib64-libc-so-6-version-‘GLIBC-2-15’-not-found"><span class="toc-number">3.4.</span> <span class="toc-text">坑2.2 Import Error: /lib64/libc.so.6: version ‘GLIBC_2.15’ not found</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-3-更新了gcc？"><span class="toc-number">3.5.</span> <span class="toc-text">坑2.3 更新了gcc？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑3-No-ycm-extra-conf-py-detected-amp-amp-Attribute-Error-‘module’-object-has-no-attribute-‘FlagsForFile’"><span class="toc-number">3.6.</span> <span class="toc-text">坑3 No .ycm_extra_conf.py detected. && Attribute Error: ‘module’ object has no attribute ‘FlagsForFile’</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">4.</span> <span class="toc-text">配置</span></a></li></ol>
 		
 		</div>
 		
@@ -156,6 +156,8 @@
 </ul>
 <p>来查看当前系统支持的GLIBC版本，发现我的系统最多只支持到2.12，自然没法找到2.15的版本。虽然这个错误是由glibc的版本比较低引起的，但是在这里非常非常不建议通过更新glibc的版本来填这个坑，原因在于glibc是linux系统比较底层的c++运行库，很多基本的系统命令都依赖这个库，更新时如果操作不当很有可能导致这些命令都没法使用，比较难修理。<br>那么除此之外还有什么办法呢？上面也说了，ycm是基于clang来做C家族语言的补全的，而实际上这里调用glibc 2.15也是clang的需求，如果你的系统比较旧，那么下载的clang预编译包的所依赖的glibc很有可能版本高于你系统中的glibc，导致你掉入这个坑中，那么实际上我们只需要不使用clang的预编译包，而是从源码编译clang的话，就不会产生依赖更高版本clang的情况了。<br>从源码编译安装clang的过程不在这里细讲，需要注意的是clang是llvm这个库的一部分，所以实际上你需要从源码编译安装llvm。编译安装完成后，找到安装目录下的<code>lib/libclang.so</code>并用它替换<code>.vim/bundle/YouCompleteMe/third_party/ycmd/</code>下的对应文件就可以了。</p>
 <ul>
+<li><h3 id="坑2-3-更新了gcc？"><a href="#坑2-3-更新了gcc？" class="headerlink" title="坑2.3 更新了gcc？"></a>坑2.3 更新了gcc？</h3><p>业务要求将gcc升级至4.8，更新并更换了默认gcc为高版本后，启动vim时ycm再次报了The ycmd server SHUT DOWN。解决办法是重新执行ycm目录下的<code>setup.py</code></p>
+</li>
 <li><h3 id="坑3-No-ycm-extra-conf-py-detected-amp-amp-Attribute-Error-‘module’-object-has-no-attribute-‘FlagsForFile’"><a href="#坑3-No-ycm-extra-conf-py-detected-amp-amp-Attribute-Error-‘module’-object-has-no-attribute-‘FlagsForFile’" class="headerlink" title="坑3 No .ycm_extra_conf.py detected. &amp;&amp; Attribute Error: ‘module’ object has no attribute ‘FlagsForFile’"></a>坑3 No .ycm_extra_conf.py detected. &amp;&amp; Attribute Error: ‘module’ object has no attribute ‘FlagsForFile’</h3><p>这个其实不算坑，而是安装完成之后对C++补全没有进行配置或者配置不完善的问题。<code>ycm_extra_conf.py</code>实际上是ycm的一个配置文件，在<code>.vim/bundle/YouCompleteMe/third_party/ycmd/</code>路径下。如果不希望使用默认的配置文件，则可以在vimrc里面手动指定（见后）。一般来说我们需要修改的就是该文件中的flags变量，主要是把自己的工程目录添加进去，以便ycm可以识别其中的头文件。如果报Attribute Error，就在文件最后加上下面这段代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def FlagsForFiles(filename):</span><br><span class="line">    return &#123;&apos;flags&apos;: flags&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -289,7 +291,7 @@ function dashangToggle(){
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#真正的安装"><span class="toc-number">3.</span> <span class="toc-text">真正的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#坑1-Your-C-compiler-does-NOT-fully-support-C-11"><span class="toc-number">3.1.</span> <span class="toc-text">坑1 Your C++ compiler does NOT fully support C++11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-The-ycmd-server-SHUT-DOWN-restart-with-ycmrestartserver-…"><span class="toc-number">3.2.</span> <span class="toc-text">坑2 The ycmd server SHUT DOWN (restart with ycmrestartserver)…</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-1-ycm-core-so-undifined-symbol-clang-parseTranslationUnit2FullArgv"><span class="toc-number">3.3.</span> <span class="toc-text">坑2.1 ycm_core.so: undifined symbol: clang_parseTranslationUnit2FullArgv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-2-Import-Error-lib64-libc-so-6-version-‘GLIBC-2-15’-not-found"><span class="toc-number">3.4.</span> <span class="toc-text">坑2.2 Import Error: /lib64/libc.so.6: version ‘GLIBC_2.15’ not found</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑3-No-ycm-extra-conf-py-detected-amp-amp-Attribute-Error-‘module’-object-has-no-attribute-‘FlagsForFile’"><span class="toc-number">3.5.</span> <span class="toc-text">坑3 No .ycm_extra_conf.py detected. && Attribute Error: ‘module’ object has no attribute ‘FlagsForFile’</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">4.</span> <span class="toc-text">配置</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#真正的安装"><span class="toc-number">3.</span> <span class="toc-text">真正的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#坑1-Your-C-compiler-does-NOT-fully-support-C-11"><span class="toc-number">3.1.</span> <span class="toc-text">坑1 Your C++ compiler does NOT fully support C++11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-The-ycmd-server-SHUT-DOWN-restart-with-ycmrestartserver-…"><span class="toc-number">3.2.</span> <span class="toc-text">坑2 The ycmd server SHUT DOWN (restart with ycmrestartserver)…</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-1-ycm-core-so-undifined-symbol-clang-parseTranslationUnit2FullArgv"><span class="toc-number">3.3.</span> <span class="toc-text">坑2.1 ycm_core.so: undifined symbol: clang_parseTranslationUnit2FullArgv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-2-Import-Error-lib64-libc-so-6-version-‘GLIBC-2-15’-not-found"><span class="toc-number">3.4.</span> <span class="toc-text">坑2.2 Import Error: /lib64/libc.so.6: version ‘GLIBC_2.15’ not found</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-3-更新了gcc？"><span class="toc-number">3.5.</span> <span class="toc-text">坑2.3 更新了gcc？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑3-No-ycm-extra-conf-py-detected-amp-amp-Attribute-Error-‘module’-object-has-no-attribute-‘FlagsForFile’"><span class="toc-number">3.6.</span> <span class="toc-text">坑3 No .ycm_extra_conf.py detected. && Attribute Error: ‘module’ object has no attribute ‘FlagsForFile’</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">4.</span> <span class="toc-text">配置</span></a></li></ol>
  
   </div>
 
@@ -347,34 +349,6 @@ function dashangToggle(){
 			
 		
 			
-				<a href="/tags/vim/" style="display:none" title="vim">vim</a>
-			
-		
-			
-				<a href="/tags/YouCompleteMe/" style="display:none" title="YouCompleteMe">YouCompleteMe</a>
-			
-		
-			
-				<a href="/tags/pyyaml/" style="display:none" title="pyyaml">pyyaml</a>
-			
-		
-			
-				<a href="/tags/安装/" style="display:none" title="安装">安装</a>
-			
-		
-			
-				<a href="/tags/非技术/" style="display:none" title="非技术">非技术</a>
-			
-		
-			
-				<a href="/tags/Gunpla/" style="display:none" title="Gunpla">Gunpla</a>
-			
-		
-			
-				<a href="/tags/杂项/" style="display:none" title="杂项">杂项</a>
-			
-		
-			
 				<a href="/tags/pyhon/" style="display:none" title="pyhon">pyhon</a>
 			
 		
@@ -387,11 +361,39 @@ function dashangToggle(){
 			
 		
 			
+				<a href="/tags/vim/" style="display:none" title="vim">vim</a>
+			
+		
+			
+				<a href="/tags/YouCompleteMe/" style="display:none" title="YouCompleteMe">YouCompleteMe</a>
+			
+		
+			
+				<a href="/tags/非技术/" style="display:none" title="非技术">非技术</a>
+			
+		
+			
+				<a href="/tags/Gunpla/" style="display:none" title="Gunpla">Gunpla</a>
+			
+		
+			
 				<a href="/tags/unicode/" style="display:none" title="unicode">unicode</a>
 			
 		
 			
 				<a href="/tags/编码/" style="display:none" title="编码">编码</a>
+			
+		
+			
+				<a href="/tags/pyyaml/" style="display:none" title="pyyaml">pyyaml</a>
+			
+		
+			
+				<a href="/tags/安装/" style="display:none" title="安装">安装</a>
+			
+		
+			
+				<a href="/tags/杂项/" style="display:none" title="杂项">杂项</a>
 			
 		
 		</ul>
