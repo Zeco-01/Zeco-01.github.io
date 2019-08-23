@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="Zeco's blog">
 <meta property="og:description" content="本文将讲述我是如何安装使用vim的代码补全插件YouCompleteMe的。">
 <meta property="og:image" content="http://zeco.ml/../../../../img/ycm.gif">
-<meta property="og:updated_time" content="2019-08-22T15:54:15.999Z">
+<meta property="og:updated_time" content="2019-08-22T15:54:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim代码补全插件YouCompleteMe的安装和使用">
 <meta name="twitter:description" content="本文将讲述我是如何安装使用vim的代码补全插件YouCompleteMe的。">
@@ -78,7 +78,7 @@
 				<h1 class="site-name"><a href="/" title="Zeco&#39;s blog">Zeco&#39;s blog</a></h1>
 				<h2 class="blog-motto">I think, I code, I run</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -94,7 +94,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:zeco.ml">
 					</form>
 					
@@ -118,7 +118,7 @@
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2018-11-30T12:54:47.000Z" itemprop="datePublished"> Published 2018-11-30</time>
+    <time datetime="2018-11-30T12:54:47.000Z" itemprop="datePublished"> 发表于 2018-11-30</time>
     
   </p>
 </header>
@@ -126,7 +126,7 @@
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#真正的安装"><span class="toc-number">3.</span> <span class="toc-text">真正的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#坑1-Your-C-compiler-does-NOT-fully-support-C-11"><span class="toc-number">3.1.</span> <span class="toc-text">坑1 Your C++ compiler does NOT fully support C++11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-The-ycmd-server-SHUT-DOWN-restart-with-ycmrestartserver-…"><span class="toc-number">3.2.</span> <span class="toc-text">坑2 The ycmd server SHUT DOWN (restart with ycmrestartserver)…</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-1-ycm-core-so-undifined-symbol-clang-parseTranslationUnit2FullArgv"><span class="toc-number">3.3.</span> <span class="toc-text">坑2.1 ycm_core.so: undifined symbol: clang_parseTranslationUnit2FullArgv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-2-Import-Error-lib64-libc-so-6-version-‘GLIBC-2-15’-not-found"><span class="toc-number">3.4.</span> <span class="toc-text">坑2.2 Import Error: /lib64/libc.so.6: version ‘GLIBC_2.15’ not found</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-3-更新了gcc？"><span class="toc-number">3.5.</span> <span class="toc-text">坑2.3 更新了gcc？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑3-No-ycm-extra-conf-py-detected-amp-amp-Attribute-Error-‘module’-object-has-no-attribute-‘FlagsForFile’"><span class="toc-number">3.6.</span> <span class="toc-text">坑3 No .ycm_extra_conf.py detected. && Attribute Error: ‘module’ object has no attribute ‘FlagsForFile’</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">4.</span> <span class="toc-text">配置</span></a></li></ol>
 		
@@ -289,7 +289,7 @@ function dashangToggle(){
       
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#真正的安装"><span class="toc-number">3.</span> <span class="toc-text">真正的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#坑1-Your-C-compiler-does-NOT-fully-support-C-11"><span class="toc-number">3.1.</span> <span class="toc-text">坑1 Your C++ compiler does NOT fully support C++11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-The-ycmd-server-SHUT-DOWN-restart-with-ycmrestartserver-…"><span class="toc-number">3.2.</span> <span class="toc-text">坑2 The ycmd server SHUT DOWN (restart with ycmrestartserver)…</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-1-ycm-core-so-undifined-symbol-clang-parseTranslationUnit2FullArgv"><span class="toc-number">3.3.</span> <span class="toc-text">坑2.1 ycm_core.so: undifined symbol: clang_parseTranslationUnit2FullArgv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-2-Import-Error-lib64-libc-so-6-version-‘GLIBC-2-15’-not-found"><span class="toc-number">3.4.</span> <span class="toc-text">坑2.2 Import Error: /lib64/libc.so.6: version ‘GLIBC_2.15’ not found</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑2-3-更新了gcc？"><span class="toc-number">3.5.</span> <span class="toc-text">坑2.3 更新了gcc？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑3-No-ycm-extra-conf-py-detected-amp-amp-Attribute-Error-‘module’-object-has-no-attribute-‘FlagsForFile’"><span class="toc-number">3.6.</span> <span class="toc-text">坑3 No .ycm_extra_conf.py detected. && Attribute Error: ‘module’ object has no attribute ‘FlagsForFile’</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">4.</span> <span class="toc-text">配置</span></a></li></ol>
  
@@ -316,7 +316,7 @@ function dashangToggle(){
 
 
 <div>
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<div id="mytagcloud" style="margin-top:10px">
 		
 		
@@ -403,7 +403,7 @@ function dashangToggle(){
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -671,7 +671,7 @@ $(document).ready(function(){
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
