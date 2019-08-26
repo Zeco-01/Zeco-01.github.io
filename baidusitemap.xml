@@ -4,6 +4,50 @@
 
     
   <url>
+    <loc>http://zeco.ml/9999/12/30/trick-map/</loc>
+    <lastmod>2019-08-26T06:43:19.000Z</lastmod>
+    <data>
+        <display>
+        <title>shell/vim/python/c++ 等速查表</title>
+        <pubTime>9999-12-30T06:31:10.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>C/C++</tag>
+         
+        <tag>vim</tag>
+         
+        <tag>shell</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zeco.ml/2016/05/19/use-c-to-show-unicode/</loc>
+    <lastmod>2019-08-26T06:34:21.000Z</lastmod>
+    <data>
+        <display>
+        <title>C语言在控制台中显示unicode中文字符</title>
+        <pubTime>2016-05-19T04:48:12.000Z</pubTime>
+        
+        <tag>C/C++</tag>
+         
+        <tag>unicode</tag>
+         
+        <tag>编码</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zeco.ml/2019/01/21/sazabi/</loc>
     <lastmod>2019-08-22T17:24:26.000Z</lastmod>
     <data>
@@ -33,27 +77,6 @@
         <tag>vim</tag>
          
         <tag>YouCompleteMe</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2016/05/19/use-c-to-show-unicode/</loc>
-    <lastmod>2019-01-21T16:02:02.000Z</lastmod>
-    <data>
-        <display>
-        <title>C语言在控制台中显示unicode中文字符</title>
-        <pubTime>2016-05-19T04:48:12.000Z</pubTime>
-        
-        <tag>C/C++</tag>
-         
-        <tag>unicode</tag>
-         
-        <tag>编码</tag>
          
          
            

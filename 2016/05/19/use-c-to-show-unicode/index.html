@@ -23,7 +23,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://zeco.ml/img/saveasunicode.png">
 <meta property="og:image" content="http://zeco.ml/img/showchinese.png">
-<meta property="og:updated_time" content="2019-01-21T16:02:02.000Z">
+<meta property="og:updated_time" content="2019-08-26T06:34:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C语言在控制台中显示unicode中文字符">
 <meta name="twitter:description" content="&amp;emsp;最近的一个作业，目的是从一个Unicode编码的文本文件中读取中文字符的内码并显示在控制台中。">
@@ -142,12 +142,13 @@
 </ul>
 <p>&emsp;很简单，windows自带的记事本就提供了在保存时设置编码的功能，设置一下就可以了<br><img src="../../../../img/saveasunicode.png" alt="保存为unicode编码"></p>
 <p>&emsp;列表中还有一个unicode-bigendian，这个的意思是大端模式下的unicode，因为unicode是两个字节的数据代表一个字符，所以在大端模式下和小端模式下的存储方式是不同的。</p>
-<p>&emsp;小端模式即低位字节存储在低地址段，高位字节存储在高地址段。大端模式则正好相反。所以如果在大端机器上读取小端模式的unicode或者在小端机器上读取大端模式的unicode的话，需要将读出来的两个字节调换一下顺序。如果想深入了解一下大端模式和小端模式的话，可以参考这篇博文：<a href="http://blog.csdn.net/ce123/article/details/6971544" target="_blank" rel="external">详解大端模式和小端模式</a>，这篇文章里面也提供了判断一台机器是大端机还是小端机的代码。</p>
+<p>&emsp;小端模式即低位字节存储在低地址段，高位字节存储在高地址段。大端模式则正好相反。所以如果在大端机器上读取小端模式的unicode或者在小端机器上读取大端模式的unicode的话，需要将读出来的两个字节调换一下顺序。如果想深入了解一下大端模式和小端模式的话，可以参考这篇博文：<a href="http://blog.csdn.net/ce123/article/details/6971544" target="_blank" rel="noopener">详解大端模式和小端模式</a>，这篇文章里面也提供了判断一台机器是大端机还是小端机的代码。</p>
 <ul>
 <li><h2 id="用C语言读取unicode码"><a href="#用C语言读取unicode码" class="headerlink" title="用C语言读取unicode码"></a>用C语言读取unicode码</h2></li>
 </ul>
 <p>&emsp;前面已经说过，unicode编码方式是用两个字节的编码来表示一个字符，所以读文件的时候一次读2字节的数据就可以了。但是要注意一点，unicode编码的文本文件会的开头两个字节是0xFEFF，这个东西的学名叫做“ZERO WIDTH NO-BREAK SPACE”，并不代表某个字符，而是一种格式上的形式规定，读取字符的时候记得要判断一下。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">FILE* file = fopen(<span class="string">"unicode2.txt"</span>,<span class="string">"rb"</span>);<span class="comment">//打开文件</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">short</span> unicode;<span class="comment">//读取unicode编码</span></span><br><span class="line">	<span class="keyword">if</span> (file != <span class="literal">NULL</span>) &#123;</span><br><span class="line">		<span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">			fread(&amp;unicode, <span class="number">2</span>, <span class="number">1</span>, file);</span><br><span class="line">			<span class="keyword">if</span> (feof(file))<span class="keyword">break</span>;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%x\n"</span>, unicode);</span><br><span class="line">				<span class="keyword">if</span> (unicode != <span class="number">0xfeff</span>) &#123;</span><br><span class="line">					<span class="comment">//TODO</span></span><br><span class="line">				&#125;				</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">FILE* file = fopen(<span class="string">"unicode2.txt"</span>,<span class="string">"rb"</span>);<span class="comment">//打开文件</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">short</span> unicode;<span class="comment">//读取unicode编码</span></span><br><span class="line">	<span class="keyword">if</span> (file != <span class="literal">NULL</span>) &#123;</span><br><span class="line">		<span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">			fread(&amp;unicode, <span class="number">2</span>, <span class="number">1</span>, file);</span><br><span class="line">			<span class="keyword">if</span> (feof(file))<span class="keyword">break</span>;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%x\n"</span>, unicode);</span><br><span class="line">				<span class="keyword">if</span> (unicode != <span class="number">0xfeff</span>) &#123;</span><br><span class="line">					<span class="comment">//TODO</span></span><br><span class="line">				&#125;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+
 <p>&emsp;通过上面的代码，就可以从文件中读出每个字符对应的unicode编码了。读出来的unicode编码存放在一个unsigned short变量中，这样是没法作为字符串来输出的。</p>
 <ul>
 <li><h2 id="宽字符转换为多字节字符"><a href="#宽字符转换为多字节字符" class="headerlink" title="宽字符转换为多字节字符"></a>宽字符转换为多字节字符</h2></li>
@@ -156,6 +157,7 @@
 <p>&emsp;wchar_t类型即是宽字符，这里说明一下，在纯C中，除了一些平台上的例外，wchar_t类型只是unsigned short类型的一个typedef别名，也就是说二者是等价的；而在C++中，wchar_t则像int/char这些类型一样是内建类型。</p>
 <p>&emsp;将下面的代码放在上面的//TODO处，进行转换：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//unicode = (unicode &lt;&lt; 8) | (unicode &gt;&gt; 8);//调换前后两个字节的顺序</span></span><br><span class="line"><span class="keyword">char</span> str[<span class="number">3</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">str[<span class="number">2</span>] = <span class="string">'\0'</span>;<span class="comment">//\0作为字符串结尾</span></span><br><span class="line">setlocale(LC_ALL, <span class="string">""</span>);<span class="comment">//配置地域的信息，设置当前程序使用的本地化信息。</span></span><br><span class="line">wcstombs(str, (<span class="keyword">wchar_t</span>*)(&amp;unicode), <span class="number">2</span>);<span class="comment">//将unicode宽字符转换成多字节字符</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>, str);</span><br></pre></td></tr></table></figure>
+
 <p>&emsp;经过上面的代码，就可以通过读unicode编码显示中文字符了：</p>
 <p><img src="../../../../img/showchinese.png" alt="显示中文字符"></p>
 <p>&emsp;最后附上完整代码：</p>
@@ -376,6 +378,10 @@ function dashangToggle(){
 		
 			
 				<a href="/tags/编码/" style="display:none" title="编码">编码</a>
+			
+		
+			
+				<a href="/tags/shell/" style="display:none" title="shell">shell</a>
 			
 		
 			

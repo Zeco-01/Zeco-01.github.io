@@ -4,7 +4,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>Leetcode-278 First Bad Version | Zeco&#39;s blog</title>
+    <title>shell/vim/python/c++ 等速查表 | Zeco&#39;s blog</title>
     <meta name="baidu-site-verification" content="szo8xhfejr">
     <meta name="google-site-verification" content="_uVtfUmBEcmevomT5dpTdMBSAshmsJHV3gWBNTLX91I">
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Leetcode-278的解题过程。">
-<meta name="keywords" content="Leetcode,算法,C#">
+    <meta name="description" content="&amp;emsp;一些经常用到却经常忘记的东西，避免总是搜">
+<meta name="keywords" content="python,C&#x2F;C++,vim,shell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode-278 First Bad Version">
-<meta property="og:url" content="http://zeco.ml/2017/03/06/Leetcode-278/index.html">
+<meta property="og:title" content="shell&#x2F;vim&#x2F;python&#x2F;c++ 等速查表">
+<meta property="og:url" content="http://zeco.ml/9999/12/30/trick-map/index.html">
 <meta property="og:site_name" content="Zeco&#39;s blog">
-<meta property="og:description" content="Leetcode-278的解题过程。">
+<meta property="og:description" content="&amp;emsp;一些经常用到却经常忘记的东西，避免总是搜">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2017-03-06T06:38:46.000Z">
+<meta property="og:updated_time" content="2019-08-26T06:43:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode-278 First Bad Version">
-<meta name="twitter:description" content="Leetcode-278的解题过程。">
+<meta name="twitter:title" content="shell&#x2F;vim&#x2F;python&#x2F;c++ 等速查表">
+<meta name="twitter:description" content="&amp;emsp;一些经常用到却经常忘记的东西，避免总是搜">
 
     
     <link rel="alternative" href="/atom.xml" title="Zeco&#39;s blog" type="application/atom+xml">
@@ -111,14 +111,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/06/Leetcode-278/" title="Leetcode-278 First Bad Version" itemprop="url">Leetcode-278 First Bad Version</a>
+      <a href="/9999/12/30/trick-map/" title="shell/vim/python/c++ 等速查表" itemprop="url">shell/vim/python/c++ 等速查表</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-06T03:11:58.000Z" itemprop="datePublished"> Published 2017-03-06</time>
+    <time datetime="9999-12-30T06:31:10.000Z" itemprop="datePublished"> Published 9999-12-30</time>
     
   </p>
 </header>
@@ -128,21 +128,50 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析"><span class="toc-number">2.</span> <span class="toc-text">解析</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#comm-求差集-交集"><span class="toc-number">1.</span> <span class="toc-text">comm 求差集 交集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tar-解压"><span class="toc-number">2.</span> <span class="toc-text">Tar 解压</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tar-压缩"><span class="toc-number">3.</span> <span class="toc-text">Tar 压缩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cut-取字段"><span class="toc-number">4.</span> <span class="toc-text">cut 取字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Paste-按列合并文件"><span class="toc-number">5.</span> <span class="toc-text">Paste 按列合并文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crontab-每小时运行"><span class="toc-number">6.</span> <span class="toc-text">crontab 每小时运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-long-long-格式化"><span class="toc-number">7.</span> <span class="toc-text">C++ long long 格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#screen-日志"><span class="toc-number">8.</span> <span class="toc-text">screen 日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sort-分隔符"><span class="toc-number">9.</span> <span class="toc-text">sort 分隔符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python-列表倒序"><span class="toc-number">10.</span> <span class="toc-text">python 列表倒序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python-enumerate"><span class="toc-number">11.</span> <span class="toc-text">python enumerate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nerdcommenter"><span class="toc-number">12.</span> <span class="toc-text">Nerdcommenter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim-跳转-前进-后退"><span class="toc-number">13.</span> <span class="toc-text">Vim 跳转 前进 后退</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crtl-s-怎么办"><span class="toc-number">14.</span> <span class="toc-text">crtl+s 怎么办</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启core"><span class="toc-number">15.</span> <span class="toc-text">开启core</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sed删除所有空格"><span class="toc-number">16.</span> <span class="toc-text">sed删除所有空格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#awk-求和"><span class="toc-number">17.</span> <span class="toc-text">awk 求和</span></a></li></ol>
 		
 		</div>
 		
-		<p>Leetcode-278的解题过程。</p>
+		<p>&emsp;一些经常用到却经常忘记的东西，避免总是搜</p>
 <a id="more"></a>
-
 <ul>
-<li><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
-<p>You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.    <br><br>Suppose you have n versions [1, 2, …, n] and you want to find out the first bad one, which causes all the following ones to be bad.    <br><br>You are given an API bool isBadVersion(version) which will return whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.    <br></p>
-</blockquote>
+<li><h2 id="comm-求差集-交集"><a href="#comm-求差集-交集" class="headerlink" title="comm 求差集 交集"></a>comm 求差集 交集</h2><p>  <code>comm set1.txt set2.txt</code>、</p>
+<p>  输出3列，每一列使用制表符\t隔开。</p>
+<p>  第一列是set1.txt中有而set2.txt中没有的，第二列则是set2.txt中有而set1.txt中没有的，第三列是set1.txt和set2.txt中都有的。</p>
 </li>
-<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>&emsp; Easy级别的题目，给定一个从1到n的数组，以及一个判定bad version的API，要找到第一个bad version的版本号。bad version是向后影响的，即第一个bad version后面的所有版本全部都是bad version。根据这个特点直接运用二分查找就可以了。</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* The isBadVersion API is defined in the parent class VersionControl.</span></span><br><span class="line"><span class="comment">      bool IsBadVersion(int version); */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> : <span class="title">VersionControl</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">FirstBadVersion</span>(<span class="params"><span class="keyword">int</span> n</span>)</span> &#123;</span><br><span class="line">        <span class="comment">//这里有个坑，testcase里面的版本号有的超过了int最大值，在循环的条件判断时会出问题，所以用long</span></span><br><span class="line">        <span class="keyword">long</span> a = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">long</span> b = n;</span><br><span class="line">       </span><br><span class="line">        <span class="keyword">while</span>(b-a&gt;<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">long</span> t = (b+a)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (IsBadVersion((<span class="keyword">int</span>)t))&#123;</span><br><span class="line">                b = t;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                a = t;</span><br><span class="line">            &#125;</span><br><span class="line">           </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (IsBadVersion((<span class="keyword">int</span>)a))</span><br><span class="line">            <span class="keyword">return</span> (<span class="keyword">int</span>)a;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            <span class="keyword">return</span> (<span class="keyword">int</span>)b;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<li><h2 id="Tar-解压"><a href="#Tar-解压" class="headerlink" title="Tar 解压"></a>Tar 解压</h2><p>  gz格式 <code>tar -xzvf xxx.tar.gz</code></p>
+<p>  bz格式 <code>tar -jxvf ×××.tar.bz2</code></p>
+</li>
+<li><h2 id="Tar-压缩"><a href="#Tar-压缩" class="headerlink" title="Tar 压缩"></a>Tar 压缩</h2><p>  <code>gz tar -czvf xxx.tar.gz</code></p>
+</li>
+<li><h2 id="cut-取字段"><a href="#cut-取字段" class="headerlink" title="cut 取字段"></a>cut 取字段</h2><p>  <code>cut -f n</code></p>
+</li>
+<li><h2 id="Paste-按列合并文件"><a href="#Paste-按列合并文件" class="headerlink" title="Paste 按列合并文件"></a>Paste 按列合并文件</h2><p>  <code>paste file1 file2</code></p>
+</li>
+<li><h2 id="crontab-每小时运行"><a href="#crontab-每小时运行" class="headerlink" title="crontab 每小时运行"></a>crontab 每小时运行</h2><p>  0     */1   *     *     *</p>
+</li>
+<li><h2 id="C-long-long-格式化"><a href="#C-long-long-格式化" class="headerlink" title="C++ long long 格式化"></a>C++ long long 格式化</h2><p>  %lld</p>
+</li>
+<li><h2 id="screen-日志"><a href="#screen-日志" class="headerlink" title="screen 日志"></a>screen 日志</h2><p>  <code>screen -L xxx</code></p>
+</li>
+<li><h2 id="sort-分隔符"><a href="#sort-分隔符" class="headerlink" title="sort 分隔符"></a>sort 分隔符</h2><p>  <code>sort -t $’\t’</code></p>
+</li>
+<li><h2 id="python-列表倒序"><a href="#python-列表倒序" class="headerlink" title="python 列表倒序"></a>python 列表倒序</h2><p>  l[::-1]</p>
+</li>
+<li><h2 id="python-enumerate"><a href="#python-enumerate" class="headerlink" title="python enumerate"></a>python enumerate</h2><p>  <code>for i, element in enumerate(seq):</code></p>
+</li>
+<li><h2 id="Nerdcommenter"><a href="#Nerdcommenter" class="headerlink" title="Nerdcommenter"></a>Nerdcommenter</h2><p>  注释 \cc</p>
+<p>  取消注释 \cu</p>
+</li>
+<li><h2 id="Vim-跳转-前进-后退"><a href="#Vim-跳转-前进-后退" class="headerlink" title="Vim 跳转 前进 后退"></a>Vim 跳转 前进 后退</h2><p>  ctrl+i ctrl+o</p>
+</li>
+<li><h2 id="crtl-s-怎么办"><a href="#crtl-s-怎么办" class="headerlink" title="crtl+s 怎么办"></a>crtl+s 怎么办</h2><p>  ctrl+q</p>
+</li>
+<li><h2 id="开启core"><a href="#开启core" class="headerlink" title="开启core"></a>开启core</h2><p>  <code>ulimit -c unlimited</code></p>
+</li>
+<li><h2 id="sed删除所有空格"><a href="#sed删除所有空格" class="headerlink" title="sed删除所有空格"></a>sed删除所有空格</h2><p>  <code>sed &#39;s/ //g&#39;</code></p>
+</li>
+<li><h2 id="awk-求和"><a href="#awk-求和" class="headerlink" title="awk 求和"></a>awk 求和</h2><p>  <code>awk &#39;{sum += $1};END {print sum}&#39;</code></p>
 </li>
 </ul>
  
@@ -178,7 +207,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Leetcode/">Leetcode</a><a href="/tags/算法/">算法</a><a href="/tags/C/">C#</a>
+  <span></span> <a href="/tags/python/">python</a><a href="/tags/C-C/">C/C++</a><a href="/tags/vim/">vim</a><a href="/tags/shell/">shell</a>
   </div>
 
 
@@ -188,7 +217,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://zeco.ml/2017/03/06/Leetcode-278/" data-title="Leetcode-278 First Bad Version | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
+	  <div data-url="http://zeco.ml/9999/12/30/trick-map/" data-title="shell/vim/python/c++ 等速查表 | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -239,18 +268,18 @@ function dashangToggle(){
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/03/06/Leetcode-83/" title="Leetcode-83 Remove Duplicates from Sorted List">
+ <a href="/9999/12/31/welcome/" title="欢迎来到我的博客">
   <strong>上一篇：</strong><br/>
   <span>
-  Leetcode-83 Remove Duplicates from Sorted List</span>
+  欢迎来到我的博客</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/03/06/Leetcode-1/"  title="Leetcode-1 Two Sum">
+<a href="/2019/01/21/sazabi/"  title="RG 沙扎比渣新素组">
  <strong>下一篇：</strong><br/> 
- <span>Leetcode-1 Two Sum
+ <span>RG 沙扎比渣新素组
 </span>
 </a>
 </div>
@@ -271,7 +300,7 @@ function dashangToggle(){
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析"><span class="toc-number">2.</span> <span class="toc-text">解析</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#comm-求差集-交集"><span class="toc-number">1.</span> <span class="toc-text">comm 求差集 交集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tar-解压"><span class="toc-number">2.</span> <span class="toc-text">Tar 解压</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tar-压缩"><span class="toc-number">3.</span> <span class="toc-text">Tar 压缩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cut-取字段"><span class="toc-number">4.</span> <span class="toc-text">cut 取字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Paste-按列合并文件"><span class="toc-number">5.</span> <span class="toc-text">Paste 按列合并文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crontab-每小时运行"><span class="toc-number">6.</span> <span class="toc-text">crontab 每小时运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-long-long-格式化"><span class="toc-number">7.</span> <span class="toc-text">C++ long long 格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#screen-日志"><span class="toc-number">8.</span> <span class="toc-text">screen 日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sort-分隔符"><span class="toc-number">9.</span> <span class="toc-text">sort 分隔符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python-列表倒序"><span class="toc-number">10.</span> <span class="toc-text">python 列表倒序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python-enumerate"><span class="toc-number">11.</span> <span class="toc-text">python enumerate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nerdcommenter"><span class="toc-number">12.</span> <span class="toc-text">Nerdcommenter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim-跳转-前进-后退"><span class="toc-number">13.</span> <span class="toc-text">Vim 跳转 前进 后退</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crtl-s-怎么办"><span class="toc-number">14.</span> <span class="toc-text">crtl+s 怎么办</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启core"><span class="toc-number">15.</span> <span class="toc-text">开启core</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sed删除所有空格"><span class="toc-number">16.</span> <span class="toc-text">sed删除所有空格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#awk-求和"><span class="toc-number">17.</span> <span class="toc-text">awk 求和</span></a></li></ol>
  
   </div>
 

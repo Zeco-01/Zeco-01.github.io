@@ -132,15 +132,17 @@
 		
 		</div>
 		
-		<p>Leetcode-1的解题过程。<br><a id="more"></a></p>
+		<p>Leetcode-1的解题过程。</p>
+<a id="more"></a>
+
 <ul>
 <li><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
 <p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.<br>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Example:</span><br><span class="line">Given nums = [2, 7, 11, 15], target = 9,</span><br><span class="line">Because nums[0] + nums[1] = 2 + 7 = 9,</span><br><span class="line">return [0, 1].</span><br></pre></td></tr></table></figure>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Example:</span><br><span class="line">Given nums = [2, 7, 11, 15], target = 9,</span><br><span class="line">Because nums[0] + nums[1] = 2 + 7 = 9,</span><br><span class="line">return [0, 1].</span><br></pre></td></tr></table></figure>
 </li>
 <li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>&emsp; 在给定的数组里面找到两个和为给定值的元素的下标，题目里已经说明给定的数组有唯一解，直接暴搜了（其实应该用hash table类的方法）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :type target: int</span><br><span class="line">        :rtype: List[int]</span><br><span class="line">        """</span></span><br><span class="line">        i=<span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> num1 <span class="keyword">in</span> nums:</span><br><span class="line">            j =i+<span class="number">1</span></span><br><span class="line">            <span class="keyword">for</span> num2 <span class="keyword">in</span> nums[j:]:</span><br><span class="line">                <span class="keyword">if</span> num1+num2 == target :</span><br><span class="line">                    <span class="keyword">return</span> [i,j]</span><br><span class="line">                j+=<span class="number">1</span></span><br><span class="line">            i+=<span class="number">1</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :type target: int</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        i=<span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> num1 <span class="keyword">in</span> nums:</span><br><span class="line">            j =i+<span class="number">1</span></span><br><span class="line">            <span class="keyword">for</span> num2 <span class="keyword">in</span> nums[j:]:</span><br><span class="line">                <span class="keyword">if</span> num1+num2 == target :</span><br><span class="line">                    <span class="keyword">return</span> [i,j]</span><br><span class="line">                j+=<span class="number">1</span></span><br><span class="line">            i+=<span class="number">1</span></span><br></pre></td></tr></table></figure></li>
 </ul>
  
 	</div>
@@ -367,6 +369,10 @@ function dashangToggle(){
 		
 			
 				<a href="/tags/编码/" style="display:none" title="编码">编码</a>
+			
+		
+			
+				<a href="/tags/shell/" style="display:none" title="shell">shell</a>
 			
 		
 			

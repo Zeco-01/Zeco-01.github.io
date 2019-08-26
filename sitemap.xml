@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zeco.ml/9999/12/30/trick-map/</loc>
+    
+    <lastmod>2019-08-26T06:43:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zeco.ml/2016/05/19/use-c-to-show-unicode/</loc>
+    
+    <lastmod>2019-08-26T06:34:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zeco.ml/2019/01/21/sazabi/</loc>
     
     <lastmod>2019-08-22T17:24:26.000Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://zeco.ml/2018/11/30/install-ycm/</loc>
     
     <lastmod>2019-08-22T15:54:14.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zeco.ml/2016/05/19/use-c-to-show-unicode/</loc>
-    
-    <lastmod>2019-01-21T16:02:02.000Z</lastmod>
     
   </url>
   
