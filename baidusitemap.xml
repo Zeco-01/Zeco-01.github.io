@@ -1,462 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-
-    
   <url>
-    <loc>http://zeco.ml/9999/12/30/trick-map/</loc>
-    <lastmod>2019-08-26T06:43:19.000Z</lastmod>
-    <data>
-        <display>
-        <title>shell/vim/python/c++ 等速查表</title>
-        <pubTime>9999-12-30T06:31:10.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>C/C++</tag>
-         
-        <tag>vim</tag>
-         
-        <tag>shell</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2016/05/19/use-c-to-show-unicode/</loc>
-    <lastmod>2019-08-26T06:34:21.000Z</lastmod>
-    <data>
-        <display>
-        <title>C语言在控制台中显示unicode中文字符</title>
-        <pubTime>2016-05-19T04:48:12.000Z</pubTime>
-        
-        <tag>C/C++</tag>
-         
-        <tag>unicode</tag>
-         
-        <tag>编码</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2019/01/21/sazabi/</loc>
-    <lastmod>2019-08-22T17:24:26.000Z</lastmod>
-    <data>
-        <display>
-        <title>RG 沙扎比渣新素组</title>
-        <pubTime>2019-01-21T14:13:59.000Z</pubTime>
-        
-        <tag>非技术</tag>
-         
-        <tag>Gunpla</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2018/11/30/install-ycm/</loc>
-    <lastmod>2019-08-22T15:54:14.000Z</lastmod>
-    <data>
-        <display>
-        <title>vim代码补全插件YouCompleteMe的安装和使用</title>
-        <pubTime>2018-11-30T12:54:47.000Z</pubTime>
-        
-        <tag>vim</tag>
-         
-        <tag>YouCompleteMe</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>http://zeco.ml/9999/12/31/welcome/</loc>
-    <lastmod>2018-12-30T06:19:40.000Z</lastmod>
-    <data>
-        <display>
-        <title>欢迎来到我的博客</title>
-        <pubTime>9999-12-31T15:59:59.000Z</pubTime>
-        
-        <tag>杂项</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2017/08/26/django-deploy/</loc>
-    <lastmod>2018-11-30T13:06:08.000Z</lastmod>
-    <data>
-        <display>
-        <title>UWSGI+NGINX+DJANGO 阿里云ECS部署历险记</title>
-        <pubTime>2017-08-26T12:43:32.000Z</pubTime>
-        
-        <tag>pyhon</tag>
-         
-        <tag>django</tag>
-         
-        <tag>阿里云</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2018/03/21/Leetcode-532/</loc>
-    <lastmod>2018-03-21T08:47:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Leetcode-532 K-diff Pairs in an Array</title>
-        <pubTime>2018-03-21T08:37:20.000Z</pubTime>
-        
-        <tag>Leetcode</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>python</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2017/06/26/Leetcode-217/</loc>
-    <lastmod>2017-06-27T01:36:32.000Z</lastmod>
-    <data>
-        <display>
-        <title>Leetcode-217 Contains Duplicate</title>
-        <pubTime>2017-06-26T03:00:34.000Z</pubTime>
-        
-        <tag>Leetcode</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>python</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2017/04/13/Leetcode-5/</loc>
-    <lastmod>2017-04-26T12:22:38.000Z</lastmod>
-    <data>
-        <display>
-        <title>Leetcode-5 Longest Palindromic Substring</title>
-        <pubTime>2017-04-13T11:27:06.000Z</pubTime>
-        
-        <tag>Leetcode</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>python</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2017/04/26/Leetcode-71/</loc>
-    <lastmod>2017-04-26T12:07:52.000Z</lastmod>
-    <data>
-        <display>
-        <title>Leetcode-71 Simplify Path</title>
-        <pubTime>2017-04-26T11:58:53.000Z</pubTime>
-        
-        <tag>Leetcode</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>python</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2017/04/26/Leetcode-135/</loc>
-    <lastmod>2017-04-26T11:48:14.000Z</lastmod>
-    <data>
-        <display>
-        <title>Leetcode-135 Candy</title>
-        <pubTime>2017-04-26T07:00:28.000Z</pubTime>
-        
-        <tag>Leetcode</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>python</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2017/04/24/solve-pyyaml-install-fail/</loc>
-    <lastmod>2017-04-26T07:14:52.000Z</lastmod>
-    <data>
-        <display>
-        <title>解决pyyaml安装失败问题</title>
-        <pubTime>2017-04-24T09:12:12.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>pyyaml</tag>
-         
-        <tag>安装</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2017/03/09/Leetcode-492/</loc>
-    <lastmod>2017-04-21T03:11:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Leetcode-492  Construct the Rectangle</title>
-        <pubTime>2017-03-09T08:22:49.000Z</pubTime>
-        
-        <tag>Leetcode</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>python</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2017/03/06/Leetcode-455/</loc>
-    <lastmod>2017-04-21T03:11:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>Leetcode-455 Assign Cookies</title>
-        <pubTime>2017-03-06T07:09:40.000Z</pubTime>
-        
-        <tag>Leetcode</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>C#</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2017/03/06/Leetcode-1/</loc>
-    <lastmod>2017-04-21T03:11:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>Leetcode-1 Two Sum</title>
-        <pubTime>2017-03-06T02:41:32.000Z</pubTime>
-        
-        <tag>Leetcode</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>python</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2017/03/10/Leetcode-496/</loc>
-    <lastmod>2017-04-21T03:04:22.000Z</lastmod>
-    <data>
-        <display>
-        <title>Leetcode-496 Next Greater Element I</title>
-        <pubTime>2017-03-10T05:44:45.000Z</pubTime>
-        
-        <tag>Leetcode</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>C#</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2017/03/08/Leetcode-165/</loc>
-    <lastmod>2017-04-21T03:04:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>Leetcode-165 Compare Version Numbers</title>
-        <pubTime>2017-03-08T06:29:37.000Z</pubTime>
-        
-        <tag>Leetcode</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>python</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2017/03/06/Leetcode-83/</loc>
-    <lastmod>2017-04-21T03:03:28.000Z</lastmod>
-    <data>
-        <display>
-        <title>Leetcode-83 Remove Duplicates from Sorted List</title>
-        <pubTime>2017-03-06T06:39:53.000Z</pubTime>
-        
-        <tag>Leetcode</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>C#</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2017/03/03/Leetcode-345/</loc>
-    <lastmod>2017-04-21T03:03:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>Leetcode-345 Reverse Vowels of a String</title>
-        <pubTime>2017-03-03T02:59:58.000Z</pubTime>
-        
-        <tag>Leetcode</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>C/C++</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2017/03/03/leetcode-344/</loc>
-    <lastmod>2017-04-21T03:02:42.000Z</lastmod>
-    <data>
-        <display>
-        <title>Leetcode-344 Reverse String</title>
-        <pubTime>2017-03-03T01:58:37.000Z</pubTime>
-        
-        <tag>Leetcode</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>C/C++</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2017/03/06/Leetcode-278/</loc>
-    <lastmod>2017-03-06T06:38:46.000Z</lastmod>
-    <data>
-        <display>
-        <title>Leetcode-278 First Bad Version</title>
-        <pubTime>2017-03-06T03:11:58.000Z</pubTime>
-        
-        <tag>Leetcode</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>C#</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zeco.ml/2016/09/09/NLPCC2016-Chinese-Word-Simlarity/</loc>
-    <lastmod>2016-09-12T12:17:08.000Z</lastmod>
-    <data>
-        <display>
-        <title>NLPCC2016中文词汇相似度计算</title>
-        <pubTime>2016-09-09T05:22:21.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>NLP</tag>
-         
-        <tag>NLPCC评测</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
+    <loc>http://zeco.xyz/2017/03/03/Leetcode-345/</loc>
+    <lastmod>2019-09-03</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/9999/12/31/welcome/</loc>
+    <lastmod>2019-09-03</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/9999/12/30/trick-map/</loc>
+    <lastmod>2019-08-26</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2016/05/19/use-c-to-show-unicode/</loc>
+    <lastmod>2019-08-26</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2019/01/21/sazabi/</loc>
+    <lastmod>2019-08-22</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2018/11/30/install-ycm/</loc>
+    <lastmod>2019-08-22</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2017/08/26/django-deploy/</loc>
+    <lastmod>2018-11-30</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2018/03/21/Leetcode-532/</loc>
+    <lastmod>2018-03-21</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2017/06/26/Leetcode-217/</loc>
+    <lastmod>2017-06-27</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2017/04/13/Leetcode-5/</loc>
+    <lastmod>2017-04-26</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2017/04/26/Leetcode-71/</loc>
+    <lastmod>2017-04-26</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2017/04/26/Leetcode-135/</loc>
+    <lastmod>2017-04-26</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2017/04/24/solve-pyyaml-install-fail/</loc>
+    <lastmod>2017-04-26</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2017/03/09/Leetcode-492/</loc>
+    <lastmod>2017-04-21</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2017/03/06/Leetcode-455/</loc>
+    <lastmod>2017-04-21</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2017/03/06/Leetcode-1/</loc>
+    <lastmod>2017-04-21</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2017/03/10/Leetcode-496/</loc>
+    <lastmod>2017-04-21</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2017/03/08/Leetcode-165/</loc>
+    <lastmod>2017-04-21</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2017/03/06/Leetcode-83/</loc>
+    <lastmod>2017-04-21</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2017/03/03/leetcode-344/</loc>
+    <lastmod>2017-04-21</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2017/03/06/Leetcode-278/</loc>
+    <lastmod>2017-03-06</lastmod>
+  </url>  <url>
+    <loc>http://zeco.xyz/2016/09/09/NLPCC2016-Chinese-Word-Simlarity/</loc>
+    <lastmod>2016-09-12</lastmod>
+  </url>
 </urlset>
