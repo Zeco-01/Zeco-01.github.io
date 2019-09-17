@@ -4,7 +4,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>Leetcode-5 Longest Palindromic Substring | Zeco&#39;s blog</title>
+    <title>输入法原理（一）：背景知识 | Zeco&#39;s blog</title>
     <meta name="baidu-site-verification" content="szo8xhfejr">
     <meta name="google-site-verification" content="_uVtfUmBEcmevomT5dpTdMBSAshmsJHV3gWBNTLX91I">
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
@@ -13,21 +13,21 @@
     
 
     
-    <meta name="description" content="Leetcode-5的解题过程。">
-<meta name="keywords" content="Leetcode,算法,python">
+    <meta name="description" content="前言最近一个朋友聊起他对输入法的原理比较好奇，有感而发。">
+<meta name="keywords" content="输入法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode-5 Longest Palindromic Substring">
-<meta property="og:url" content="http://zeco.xyz/2017/04/13/Leetcode-5/index.html">
+<meta property="og:title" content="输入法原理（一）：背景知识">
+<meta property="og:url" content="http://zeco.xyz/2019/09/11/ime/index.html">
 <meta property="og:site_name" content="Zeco&#39;s blog">
-<meta property="og:description" content="Leetcode-5的解题过程。">
+<meta property="og:description" content="前言最近一个朋友聊起他对输入法的原理比较好奇，有感而发。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://zeco.xyz/img/search-odd.png">
-<meta property="og:image" content="http://zeco.xyz/img/search-even.png">
-<meta property="og:updated_time" content="2017-04-26T12:22:38.000Z">
+<meta property="og:image" content="http://zeco.xyz/img/chinese-keyboard.jpg">
+<meta property="og:image" content="http://zeco.xyz/img/select-candidate.png">
+<meta property="og:updated_time" content="2019-09-17T11:59:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode-5 Longest Palindromic Substring">
-<meta name="twitter:description" content="Leetcode-5的解题过程。">
-<meta name="twitter:image" content="http://zeco.xyz/img/search-odd.png">
+<meta name="twitter:title" content="输入法原理（一）：背景知识">
+<meta name="twitter:description" content="前言最近一个朋友聊起他对输入法的原理比较好奇，有感而发。">
+<meta name="twitter:image" content="http://zeco.xyz/img/chinese-keyboard.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="Zeco&#39;s blog" type="application/atom+xml">
@@ -114,14 +114,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/04/13/Leetcode-5/" title="Leetcode-5 Longest Palindromic Substring" itemprop="url">Leetcode-5 Longest Palindromic Substring</a>
+      <a href="/2019/09/11/ime/" title="输入法原理（一）：背景知识" itemprop="url">输入法原理（一）：背景知识</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="2017-04-13T11:27:06.000Z" itemprop="datePublished"> Published 2017-04-13</time>
+    <time datetime="2019-09-11T06:26:55.000Z" itemprop="datePublished"> Published 2019-09-11</time>
     
   </p>
 </header>
@@ -131,29 +131,35 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析"><span class="toc-number">2.</span> <span class="toc-text">解析</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么需要输入法？"><span class="toc-number">2.</span> <span class="toc-text">为什么需要输入法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编码与重码"><span class="toc-number">3.</span> <span class="toc-text">编码与重码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#智能输入法"><span class="toc-number">4.</span> <span class="toc-text">智能输入法</span></a></li></ol>
 		
 		</div>
 		
-		<p>Leetcode-5的解题过程。</p>
-<a id="more"></a>
-
+		<ul>
+<li><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2>最近一个朋友聊起他对输入法的原理比较好奇，有感而发。<a id="more"></a></li>
+<li><h2 id="为什么需要输入法？"><a href="#为什么需要输入法？" class="headerlink" title="为什么需要输入法？"></a>为什么需要输入法？</h2>输入法的本质是为了解决文本输入成本的问题。对于英语来说，所有的文本都是由种类很少的最小单位（26个字母）所组成，所以即使是在只能放几十个建的键盘上，也可以从容不迫地为每个字母分配一个键位。而对于汉语，组成文本的最小单位（字）的种类繁多，常用字就有3000个左右，如果硬要想英语一样，为每个字分配一个键位的话，你的键盘就会变成这样：</li>
+</ul>
+<p><img src="../../../../img/chinese-keyboard.jpg" alt="汉字键盘"></p>
+<p>可想而知，使用这种键盘的输入成本是无法接受的，谁也不想打一个字就要在键盘上翻半天。那么我们就需要对汉字进行一种编码，这种编码应当类似于英语由少量种类的最小单位组成，来达到降低输入成本的目的；相应地，也需要一个配套的软件来进行解码，把编码还原成相应的汉字，这也就是输入法所做的事情了。</p>
 <ul>
-<li><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
-<p>Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.<br>Example:<br>Input: “babad”<br>Output: “bab”<br>Note: “aba” is also a valid answer.</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Example:</span><br><span class="line">Input: &quot;cbbd&quot;</span><br><span class="line">Output: &quot;bb&quot;</span><br></pre></td></tr></table></figure>
+<li><h2 id="编码与重码"><a href="#编码与重码" class="headerlink" title="编码与重码"></a>编码与重码</h2>看到这里，有的读者可能已经想到了，汉语拼音就是一种符合我们需要的编码，而且大家都学过，门槛很低。如此一来，编码的问题看似很简单就解决了；但实际上，汉语拼音这种编码还面临着重码这个问题。</li>
+</ul>
+<p>什么是重码呢？举个例子来说，“时期”和“十七”的汉语拼音都是”shiqi”（不考虑音调的条件下），也就是说当我输入“shiqi”的时候，仅凭这个编码，输入法是无法确定我想要的是哪一个词的。这种情况下，输入法只能列出一系列符合这个编码的候选词，然后让用户自行进行选择。</p>
+<p><img src="../../../../img/select-candidate.png" alt="选择候选"></p>
+<p>不幸的是，在汉语拼音中重码现象是很严重的，同样的拼音可以对应几十上百的同音候选，如果每次都在这么多的候选中寻找真正想要的词，似乎又回到了“汉字键盘”的窘境，输入成本居高不下。</p>
+<p>那么重码的问题如何解决呢？一种思路是从编码的设计上来避免重码，让每个编码都只对应唯一的候选，从根本上避免重码。从这一思路中诞生的就是五笔、终极boss等基于区位码的输入法，五笔当时更是号称最快汉语输入法，在当时也是主流输入法之一。这种输入法固然避免了重码的问题，但随之而来的就是用户高昂的学习成本，这种对汉字的编码方式不像汉语拼音，它对新用户来说是完全陌生的，可以说学习成本和使用收益都交给了用户承担。此外为了避免重码，编码的长度也会相应地变长，平均来说用户需要输入更多内容才能得到想要的候选。然而用户永远是懒的，有没有一种办法能让我既不用学习复杂的编码，又不用输入太长的编码，又能很方便地找到我想要的词呢？答案是有的，智能输入法就是干这个的！</p>
+<ul>
+<li><h2 id="智能输入法"><a href="#智能输入法" class="headerlink" title="智能输入法"></a>智能输入法</h2><p>基于上面的讨论，我们想要的编码和输入法要满足下面的条件：</p>
 </li>
-<li><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>查找最长回文子串，一道比较经典的字符串处理题目。对于一个长度为n的字符串来说，所有可能的子串有2^n种，想全部遍历显然是不现实的，我们需要一种更加高效的办法来扫描字符串。我们的目标是要找到回文字符串，所以可以根据回文串的特点来进行查找。回文串可以分为两类：</p>
+<li><p>编码简单，易学，或者干脆就是用户已经会的东西</p>
+</li>
+<li><p>编码平均码长要短</p>
+</li>
+<li><p>找候选方便，不用大海捞针</p>
 </li>
 </ul>
-<ul>
-<li>长度为奇数，这样的回文串会有一个中心字符，其他的字符都关于这个字符对称</li>
-<li>长度为偶数，这两的回文串的中心字符有两个且必定相同，其他字符都关于这两个字符对称<br>那么我们可以逐个字符扫描原字符串s，并将当前的字符（或当前字符与其下一个字符）作为假想的回文串中心字符，并以此为起点，比对s中关于假想中心对称位置的字符，来找到候选的回文串，如图所示。<br><img src="../../../../img/search-odd.png" alt="奇数情况"><br><img src="../../../../img/search-even.png" alt="偶数情况"></li>
-</ul>
-<p>总的来说这道题也不是很难，要注意的是一些边界情况以及奇数和偶数的讨论。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindromic</span><span class="params">(self, s)</span>:</span></span><br><span class="line"></span><br><span class="line">        head = <span class="number">0</span></span><br><span class="line">        tail = len(s) - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> (head &lt; tail):</span><br><span class="line">            <span class="keyword">if</span> s[head] != s[tail]:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            head += <span class="number">1</span></span><br><span class="line">            tail -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestPalindrome</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> self.isPalindromic(s):</span><br><span class="line">            <span class="keyword">return</span> s</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        l = len(s)</span><br><span class="line">        maxlen = <span class="number">0</span></span><br><span class="line">        h = <span class="number">0</span></span><br><span class="line">        t = l</span><br><span class="line">        <span class="keyword">while</span> (i &lt; l):</span><br><span class="line">            head = i</span><br><span class="line">            tail = i</span><br><span class="line">            flag = <span class="literal">False</span></span><br><span class="line">            thislen = <span class="number">0</span></span><br><span class="line">            <span class="keyword">while</span> head &gt;= <span class="number">0</span> <span class="keyword">and</span> tail &lt; l <span class="keyword">and</span> head &lt;= tail:</span><br><span class="line">                <span class="keyword">if</span> s[head] != s[tail]:</span><br><span class="line">                    flag = <span class="literal">False</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                thislen = tail - head+<span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> thislen &gt; maxlen:</span><br><span class="line">                    maxlen = thislen</span><br><span class="line">                    h = head</span><br><span class="line">                    t = tail</span><br><span class="line">                head -= <span class="number">1</span></span><br><span class="line">                tail += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># flag = True</span></span><br><span class="line">            head = i</span><br><span class="line">            tail = i + <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> head &gt;= <span class="number">0</span> <span class="keyword">and</span> tail &lt; l <span class="keyword">and</span> head &lt;= tail:</span><br><span class="line">                <span class="keyword">if</span> s[head] != s[tail]:</span><br><span class="line">                    flag = <span class="literal">False</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                thislen = tail - head +<span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> thislen &gt; maxlen:</span><br><span class="line">                    maxlen = thislen</span><br><span class="line">                    h = head</span><br><span class="line">                    t = tail</span><br><span class="line">                head -= <span class="number">1</span></span><br><span class="line">                tail += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> s[h:t+<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
-
+<p>可见，使用汉语拼音作为编码的话，可以比较好地满足前两个条件，而在有大量重码的情况下要做到第三点，就要求我们的输入法“猜测”用户意图的能力很强，可以在大部分情况下把用户想要的候选排在首位，方便用户快速上屏。实际使用中大家也可以体会到，只要你用的是一个比较现代的拼音输入法，毫不夸张地说，80%以上的情况我们根本不需要细看候选栏的所有内容，直接无脑空格上屏就可以了。移动端的情况也类似，大部分情况下都是无脑点击第一个候选（九宫格的情况下因为重码更加严重，这个比例会有一定下降）。</p>
+<p>那么如何让输入法猜对用户想要的候选呢？首先我们要定义什么是“对”。从语言的角度来看，输入法给出的候选需要符合语法规则，并有正确的语义。举例来说，用户输入”mingchaoshixianshi”，“名超事闲适”显然不符合常规的语法规范，“命超市仙逝”则有正确的语法结构，但并不具有正确的语义。为了让输入法可以根据这个标准来对候选进行排序，我们必须有一个量化的标准来进行界定。从数学的角度来看，可以通过“概率”这一概念对候选的正确成都进行量化，也就是越正确的候选，其出现的概率越高；反之则概率越低（实际上，这也正是NLP中语言模型的基本思想）。抽象成数学问题的话，输入法就是在给定用户输入的编码串$y$的条件下，召回若干符合$y$的候选串$x$，对每个候选，估计其条件概率$P(x|y)$，最后给出若干个概率最高的候选。更进一步的话，核心问题就在于如何尽可能准确地估计条件概率$P(x|y)$。至于这个概率如何去估计？输入法又是如何建模的？这些问题我们下期继续探究。</p>
  
 	</div>
 	<p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" style = "color:#fff;" title="打赏，支持一下">打赏</a></p>
@@ -187,7 +193,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Leetcode/">Leetcode</a><a href="/tags/算法/">算法</a><a href="/tags/python/">python</a>
+  <span></span> <a href="/tags/输入法/">输入法</a>
   </div>
 
 
@@ -197,7 +203,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://zeco.xyz/2017/04/13/Leetcode-5/" data-title="Leetcode-5 Longest Palindromic Substring | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
+	  <div data-url="http://zeco.xyz/2019/09/11/ime/" data-title="输入法原理（一）：背景知识 | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -248,18 +254,18 @@ function dashangToggle(){
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/04/24/solve-pyyaml-install-fail/" title="解决pyyaml安装失败问题">
+ <a href="/9999/12/30/trick-map/" title="shell/vim/python/c++ 等速查表">
   <strong>上一篇：</strong><br/>
   <span>
-  解决pyyaml安装失败问题</span>
+  shell/vim/python/c++ 等速查表</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/03/10/Leetcode-496/"  title="Leetcode-496 Next Greater Element I">
+<a href="/2019/01/21/sazabi/"  title="RG 沙扎比渣新素组">
  <strong>下一篇：</strong><br/> 
- <span>Leetcode-496 Next Greater Element I
+ <span>RG 沙扎比渣新素组
 </span>
 </a>
 </div>
@@ -280,7 +286,7 @@ function dashangToggle(){
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析"><span class="toc-number">2.</span> <span class="toc-text">解析</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么需要输入法？"><span class="toc-number">2.</span> <span class="toc-text">为什么需要输入法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编码与重码"><span class="toc-number">3.</span> <span class="toc-text">编码与重码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#智能输入法"><span class="toc-number">4.</span> <span class="toc-text">智能输入法</span></a></li></ol>
  
   </div>
 
