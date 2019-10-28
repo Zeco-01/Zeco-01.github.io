@@ -4,7 +4,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>shell/vim/python/c++ 等速查表 | Zeco&#39;s blog</title>
+    <title>git找回丢失的修改 | Zeco&#39;s blog</title>
     <meta name="baidu-site-verification" content="szo8xhfejr">
     <meta name="google-site-verification" content="_uVtfUmBEcmevomT5dpTdMBSAshmsJHV3gWBNTLX91I">
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="&amp;emsp;一些经常用到却经常忘记的东西，避免总是搜">
-<meta name="keywords" content="python,C&#x2F;C++,vim,shell">
+    <meta name="description" content="前言  No! 我不小心drop了我stash的修改！No! 我不小心reset –hard盖掉了我的修改！No! …. 如果你在使用git的过程中遇到了上述情况，本文可能对你有所帮助。">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shell&#x2F;vim&#x2F;python&#x2F;c++ 等速查表">
-<meta property="og:url" content="http://zeco.xyz/9999/12/30/trick-map/index.html">
+<meta property="og:title" content="git找回丢失的修改">
+<meta property="og:url" content="http://zeco.xyz/2019/10/28/git-lost-find/index.html">
 <meta property="og:site_name" content="Zeco&#39;s blog">
-<meta property="og:description" content="&amp;emsp;一些经常用到却经常忘记的东西，避免总是搜">
+<meta property="og:description" content="前言  No! 我不小心drop了我stash的修改！No! 我不小心reset –hard盖掉了我的修改！No! …. 如果你在使用git的过程中遇到了上述情况，本文可能对你有所帮助。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-26T06:43:19.000Z">
+<meta property="og:updated_time" content="2019-10-28T06:45:28.542Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shell&#x2F;vim&#x2F;python&#x2F;c++ 等速查表">
-<meta name="twitter:description" content="&amp;emsp;一些经常用到却经常忘记的东西，避免总是搜">
+<meta name="twitter:title" content="git找回丢失的修改">
+<meta name="twitter:description" content="前言  No! 我不小心drop了我stash的修改！No! 我不小心reset –hard盖掉了我的修改！No! …. 如果你在使用git的过程中遇到了上述情况，本文可能对你有所帮助。">
 
     
     <link rel="alternative" href="/atom.xml" title="Zeco&#39;s blog" type="application/atom+xml">
@@ -111,14 +111,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/9999/12/30/trick-map/" title="shell/vim/python/c++ 等速查表" itemprop="url">shell/vim/python/c++ 等速查表</a>
+      <a href="/2019/10/28/git-lost-find/" title="git找回丢失的修改" itemprop="url">git找回丢失的修改</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zeco" target="_blank" itemprop="author">Zeco</a>
 		
   <p class="article-time">
-    <time datetime="9999-12-30T06:31:10.000Z" itemprop="datePublished"> Published 9999-12-30</time>
+    <time datetime="2019-10-28T06:23:55.000Z" itemprop="datePublished"> Published 2019-10-28</time>
     
   </p>
 </header>
@@ -128,52 +128,42 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#comm-求差集-交集"><span class="toc-number">1.</span> <span class="toc-text">comm 求差集 交集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tar-解压"><span class="toc-number">2.</span> <span class="toc-text">Tar 解压</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tar-压缩"><span class="toc-number">3.</span> <span class="toc-text">Tar 压缩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cut-取字段"><span class="toc-number">4.</span> <span class="toc-text">cut 取字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Paste-按列合并文件"><span class="toc-number">5.</span> <span class="toc-text">Paste 按列合并文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crontab-每小时运行"><span class="toc-number">6.</span> <span class="toc-text">crontab 每小时运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-long-long-格式化"><span class="toc-number">7.</span> <span class="toc-text">C++ long long 格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#screen-日志"><span class="toc-number">8.</span> <span class="toc-text">screen 日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sort-分隔符"><span class="toc-number">9.</span> <span class="toc-text">sort 分隔符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python-列表倒序"><span class="toc-number">10.</span> <span class="toc-text">python 列表倒序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python-enumerate"><span class="toc-number">11.</span> <span class="toc-text">python enumerate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nerdcommenter"><span class="toc-number">12.</span> <span class="toc-text">Nerdcommenter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim-跳转-前进-后退"><span class="toc-number">13.</span> <span class="toc-text">Vim 跳转 前进 后退</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crtl-s-怎么办"><span class="toc-number">14.</span> <span class="toc-text">crtl+s 怎么办</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启core"><span class="toc-number">15.</span> <span class="toc-text">开启core</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sed删除所有空格"><span class="toc-number">16.</span> <span class="toc-text">sed删除所有空格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#awk-求和"><span class="toc-number">17.</span> <span class="toc-text">awk 求和</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a></li></ol>
 		
 		</div>
 		
-		<p>&emsp;一些经常用到却经常忘记的东西，避免总是搜</p>
-<a id="more"></a>
-<ul>
-<li><h2 id="comm-求差集-交集"><a href="#comm-求差集-交集" class="headerlink" title="comm 求差集 交集"></a>comm 求差集 交集</h2><p>  <code>comm set1.txt set2.txt</code>、</p>
-<p>  输出3列，每一列使用制表符\t隔开。</p>
-<p>  第一列是set1.txt中有而set2.txt中没有的，第二列则是set2.txt中有而set1.txt中没有的，第三列是set1.txt和set2.txt中都有的。</p>
-</li>
-<li><h2 id="Tar-解压"><a href="#Tar-解压" class="headerlink" title="Tar 解压"></a>Tar 解压</h2><p>  gz格式 <code>tar -xzvf xxx.tar.gz</code></p>
-<p>  bz格式 <code>tar -jxvf ×××.tar.bz2</code></p>
-</li>
-<li><h2 id="Tar-压缩"><a href="#Tar-压缩" class="headerlink" title="Tar 压缩"></a>Tar 压缩</h2><p>  <code>gz tar -czvf xxx.tar.gz</code></p>
-</li>
-<li><h2 id="cut-取字段"><a href="#cut-取字段" class="headerlink" title="cut 取字段"></a>cut 取字段</h2><p>  <code>cut -f n</code></p>
-</li>
-<li><h2 id="Paste-按列合并文件"><a href="#Paste-按列合并文件" class="headerlink" title="Paste 按列合并文件"></a>Paste 按列合并文件</h2><p>  <code>paste file1 file2</code></p>
-</li>
-<li><h2 id="crontab-每小时运行"><a href="#crontab-每小时运行" class="headerlink" title="crontab 每小时运行"></a>crontab 每小时运行</h2><p>  0     */1   *     *     *</p>
-</li>
-<li><h2 id="C-long-long-格式化"><a href="#C-long-long-格式化" class="headerlink" title="C++ long long 格式化"></a>C++ long long 格式化</h2><p>  %lld</p>
-</li>
-<li><h2 id="screen-日志"><a href="#screen-日志" class="headerlink" title="screen 日志"></a>screen 日志</h2><p>  <code>screen -L xxx</code></p>
-</li>
-<li><h2 id="sort-分隔符"><a href="#sort-分隔符" class="headerlink" title="sort 分隔符"></a>sort 分隔符</h2><p>  <code>sort -t $’\t’</code></p>
-</li>
-<li><h2 id="python-列表倒序"><a href="#python-列表倒序" class="headerlink" title="python 列表倒序"></a>python 列表倒序</h2><p>  l[::-1]</p>
-</li>
-<li><h2 id="python-enumerate"><a href="#python-enumerate" class="headerlink" title="python enumerate"></a>python enumerate</h2><p>  <code>for i, element in enumerate(seq):</code></p>
-</li>
-<li><h2 id="Nerdcommenter"><a href="#Nerdcommenter" class="headerlink" title="Nerdcommenter"></a>Nerdcommenter</h2><p>  注释 \cc</p>
-<p>  取消注释 \cu</p>
-</li>
-<li><h2 id="Vim-跳转-前进-后退"><a href="#Vim-跳转-前进-后退" class="headerlink" title="Vim 跳转 前进 后退"></a>Vim 跳转 前进 后退</h2><p>  ctrl+i ctrl+o</p>
-</li>
-<li><h2 id="crtl-s-怎么办"><a href="#crtl-s-怎么办" class="headerlink" title="crtl+s 怎么办"></a>crtl+s 怎么办</h2><p>  ctrl+q</p>
-</li>
-<li><h2 id="开启core"><a href="#开启core" class="headerlink" title="开启core"></a>开启core</h2><p>  <code>ulimit -c unlimited</code></p>
-</li>
-<li><h2 id="sed删除所有空格"><a href="#sed删除所有空格" class="headerlink" title="sed删除所有空格"></a>sed删除所有空格</h2><p>  <code>sed &#39;s/ //g&#39;</code></p>
-</li>
-<li><h2 id="awk-求和"><a href="#awk-求和" class="headerlink" title="awk 求和"></a>awk 求和</h2><p>  <code>awk &#39;{sum += $1};END {print sum}&#39;</code></p>
-</li>
+		<ul>
+<li><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2></li>
 </ul>
+<p>No! 我不小心drop了我stash的修改！<br>No! 我不小心reset –hard盖掉了我的修改！<br>No! ….</p>
+<p>如果你在使用git的过程中遇到了上述情况，本文可能对你有所帮助。</p>
+<a id="more"></a>
+
+<ul>
+<li><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2></li>
+</ul>
+<p>以drop了stash为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># do some changes</span><br><span class="line">git stash</span><br><span class="line">git stash drop</span><br></pre></td></tr></table></figure>
+
+<p>如何找回被drop的修改？这时要用到一个神奇的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fsck</span><br></pre></td></tr></table></figure>
+
+<p>这个命令的用途实际上是用来验证数据库中对象的连通性和有效性(file system check)，想要详细了解这个命令可以参考<a href="https://www.bookstack.cn/read/git-doc-zh/docs-57.md" target="_blank" rel="noopener">此处</a>，这里只说明如何用这个命令找回丢失的修改</p>
+<p>首先执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fsck --lost-found</span><br></pre></td></tr></table></figure>
+
+<p>可以看到类似下面的输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dangling commit xxxxx</span><br><span class="line">dangling commit yyyyy</span><br><span class="line">dangling blob zzzzz</span><br></pre></td></tr></table></figure>
+
+<p>这些即是检查出来的不可达git对象，这里我们只关注dangling commit类即可。</p>
+<p>然后一条条查看，执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show xxxxx/yyyyy</span><br></pre></td></tr></table></figure>
+
+<p>查看各个对象的修改内容和修改日期，以及修改的base，根据这些信息确定你想恢复的修改；找到后，直接执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash apply xxxxx</span><br></pre></td></tr></table></figure>
+
+<p>即可恢复修改！万岁！</p>
+<p>注意：这个方法未必一定可行，如果过了太久或者在drop后执行了<code>git gc</code>之类的操作，有可能真的无法找回！</p>
  
 	</div>
 	<p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" style = "color:#fff;" title="打赏，支持一下">打赏</a></p>
@@ -207,7 +197,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/python/">python</a><a href="/tags/C-C/">C/C++</a><a href="/tags/vim/">vim</a><a href="/tags/shell/">shell</a>
+  <span></span> <a href="/tags/git/">git</a>
   </div>
 
 
@@ -217,7 +207,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://zeco.xyz/9999/12/30/trick-map/" data-title="shell/vim/python/c++ 等速查表 | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
+	  <div data-url="http://zeco.xyz/2019/10/28/git-lost-find/" data-title="git找回丢失的修改 | Zeco&#39;s blog" data-tsina="3723073453" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -268,18 +258,18 @@ function dashangToggle(){
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/9999/12/31/welcome/" title="欢迎来到我的博客">
+ <a href="/9999/12/30/trick-map/" title="shell/vim/python/c++ 等速查表">
   <strong>上一篇：</strong><br/>
   <span>
-  欢迎来到我的博客</span>
+  shell/vim/python/c++ 等速查表</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2019/10/28/git-lost-find/"  title="git找回丢失的修改">
+<a href="/2019/09/11/ime/"  title="输入法原理（一）：背景知识">
  <strong>下一篇：</strong><br/> 
- <span>git找回丢失的修改
+ <span>输入法原理（一）：背景知识
 </span>
 </a>
 </div>
@@ -300,7 +290,7 @@ function dashangToggle(){
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#comm-求差集-交集"><span class="toc-number">1.</span> <span class="toc-text">comm 求差集 交集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tar-解压"><span class="toc-number">2.</span> <span class="toc-text">Tar 解压</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tar-压缩"><span class="toc-number">3.</span> <span class="toc-text">Tar 压缩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cut-取字段"><span class="toc-number">4.</span> <span class="toc-text">cut 取字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Paste-按列合并文件"><span class="toc-number">5.</span> <span class="toc-text">Paste 按列合并文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crontab-每小时运行"><span class="toc-number">6.</span> <span class="toc-text">crontab 每小时运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-long-long-格式化"><span class="toc-number">7.</span> <span class="toc-text">C++ long long 格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#screen-日志"><span class="toc-number">8.</span> <span class="toc-text">screen 日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sort-分隔符"><span class="toc-number">9.</span> <span class="toc-text">sort 分隔符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python-列表倒序"><span class="toc-number">10.</span> <span class="toc-text">python 列表倒序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python-enumerate"><span class="toc-number">11.</span> <span class="toc-text">python enumerate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nerdcommenter"><span class="toc-number">12.</span> <span class="toc-text">Nerdcommenter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim-跳转-前进-后退"><span class="toc-number">13.</span> <span class="toc-text">Vim 跳转 前进 后退</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crtl-s-怎么办"><span class="toc-number">14.</span> <span class="toc-text">crtl+s 怎么办</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启core"><span class="toc-number">15.</span> <span class="toc-text">开启core</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sed删除所有空格"><span class="toc-number">16.</span> <span class="toc-text">sed删除所有空格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#awk-求和"><span class="toc-number">17.</span> <span class="toc-text">awk 求和</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a></li></ol>
  
   </div>
 
